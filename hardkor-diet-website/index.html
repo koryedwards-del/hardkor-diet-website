@@ -17,781 +17,139 @@
       --text: #E8E8E8;
       --text-dim: #888888;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--text); font-family: 'Barlow', sans-serif; font-size: 17px; line-height: 1.6; overflow-x: hidden; }
 
-    body {
-      background: var(--black);
-      color: var(--text);
-      font-family: 'Barlow', sans-serif;
-      font-size: 17px;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(10,10,10,0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 2px solid var(--yellow);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 40px;
-      height: 64px;
-    }
-
-    .nav-logo {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: 1.5rem;
-      letter-spacing: 0.08em;
-      color: var(--yellow);
-      text-decoration: none;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--text);
-      text-decoration: none;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 600;
-      font-size: 0.95rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,10,10,0.95); backdrop-filter: blur(8px); border-bottom: 2px solid var(--yellow); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 64px; }
+    .nav-logo { font-family: Impact, 'Arial Narrow', sans-serif; font-size: 1.3rem; letter-spacing: 0.06em; color: var(--yellow); text-decoration: none; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: var(--text); text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--yellow); }
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 40px 80px;
-      position: relative;
-      overflow: hidden;
-    }
+    .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 40px 80px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 60%, rgba(255,230,0,0.07) 0%, transparent 70%), repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,230,0,0.03) 60px, rgba(255,230,0,0.03) 61px); pointer-events: none; }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 50% 60%, rgba(255,230,0,0.07) 0%, transparent 70%),
-        repeating-linear-gradient(
-          0deg,
-          transparent,
-          transparent 60px,
-          rgba(255,230,0,0.03) 60px,
-          rgba(255,230,0,0.03) 61px
-        );
-      pointer-events: none;
-    }
+    .wordmark { display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 900px; margin-bottom: 16px; opacity: 0; animation: fadeUp 0.7s 0.3s forwards; }
+    .wordmark-top { display: flex; justify-content: space-between; width: 100%; padding: 0 6px; line-height: 1; }
+    .wordmark-the, .wordmark-diet { font-family: Impact, 'Arial Narrow', sans-serif; font-size: clamp(1.2rem, 2.5vw, 2rem); color: var(--yellow); letter-spacing: 0.1em; text-transform: uppercase; }
+    .wordmark-main { font-family: Impact, 'Arial Narrow', sans-serif; font-size: clamp(4.5rem, 17vw, 13rem); color: var(--yellow); letter-spacing: 0.04em; line-height: 0.88; text-transform: uppercase; }
+    .wordmark-tagline { font-family: 'Barlow Condensed', sans-serif; font-weight: 400; font-style: italic; font-size: clamp(1rem, 2.5vw, 1.5rem); color: var(--yellow-dim); letter-spacing: 0.04em; margin-top: 8px; }
 
-    .hero-eyebrow {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--yellow);
-      margin-bottom: 24px;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.2s forwards;
-    }
-
-    .hero-logo {
-      max-width: 780px;
-      width: 90%;
-      margin-bottom: 32px;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.4s forwards;
-      filter: drop-shadow(0 0 40px rgba(255,230,0,0.25));
-    }
-
-    .hero-tagline {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 400;
-      font-size: clamp(1.2rem, 3vw, 1.7rem);
-      letter-spacing: 0.05em;
-      color: var(--text-dim);
-      font-style: italic;
-      margin-bottom: 48px;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.6s forwards;
-    }
-
-    .hero-headline {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: clamp(2.2rem, 6vw, 4.5rem);
-      line-height: 1.05;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      max-width: 900px;
-      margin-bottom: 24px;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.8s forwards;
-    }
-
+    .hero-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--yellow); margin-bottom: 20px; opacity: 0; animation: fadeUp 0.7s 0.1s forwards; }
+    .hero-headline { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2rem, 6vw, 4.5rem); line-height: 1.05; text-transform: uppercase; letter-spacing: 0.02em; max-width: 900px; margin: 24px 0 16px; opacity: 0; animation: fadeUp 0.7s 0.6s forwards; }
     .hero-headline span { color: var(--yellow); }
+    .hero-sub { font-size: 1.05rem; color: var(--text-dim); max-width: 540px; margin-bottom: 40px; opacity: 0; animation: fadeUp 0.7s 0.8s forwards; }
+    .btn-primary { display: inline-block; background: var(--yellow); color: var(--black); font-family: Impact, 'Arial Narrow', sans-serif; font-size: 1.2rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 18px 56px; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; opacity: 0; animation: fadeUp 0.7s 1s forwards; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(255,230,0,0.35); }
+    .hero-disclaimer { font-size: 0.8rem; color: var(--text-dim); margin-top: 14px; opacity: 0; animation: fadeUp 0.7s 1.1s forwards; }
 
-    .hero-sub {
-      font-size: 1.1rem;
-      color: var(--text-dim);
-      max-width: 560px;
-      margin-bottom: 52px;
-      opacity: 0;
-      animation: fadeUp 0.7s 1s forwards;
-    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
-    .btn-primary {
-      display: inline-block;
-      background: var(--yellow);
-      color: var(--black);
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: 1.1rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 18px 52px;
-      text-decoration: none;
-      transition: transform 0.15s, box-shadow 0.15s;
-      opacity: 0;
-      animation: fadeUp 0.7s 1.2s forwards;
-    }
+    .divider { height: 3px; background: linear-gradient(90deg, transparent, var(--yellow), transparent); }
 
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(255,230,0,0.35);
-    }
-
-    .hero-disclaimer {
-      font-size: 0.8rem;
-      color: var(--text-dim);
-      margin-top: 16px;
-      opacity: 0;
-      animation: fadeUp 0.7s 1.3s forwards;
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── DIVIDER ── */
-    .divider {
-      height: 3px;
-      background: linear-gradient(90deg, transparent, var(--yellow), transparent);
-    }
-
-    /* ── PHILOSOPHY ── */
-    .philosophy {
-      background: var(--dark);
-      padding: 100px 40px;
-      text-align: center;
-    }
-
-    .section-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.8rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--yellow);
-      margin-bottom: 16px;
-    }
-
-    .section-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-      line-height: 1.1;
-      margin-bottom: 24px;
-    }
-
+    .philosophy { background: var(--dark); padding: 100px 40px; text-align: center; }
+    .section-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 16px; }
+    .section-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2rem, 5vw, 3.5rem); text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.1; margin-bottom: 24px; }
     .section-title span { color: var(--yellow); }
+    .section-body { color: var(--text-dim); max-width: 680px; margin: 0 auto; font-size: 1.05rem; }
+    .quote-block { border-left: 4px solid var(--yellow); padding: 20px 32px; margin: 60px auto; max-width: 720px; text-align: left; background: var(--gray); }
+    .quote-block p { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(1.4rem, 3.5vw, 2rem); letter-spacing: 0.02em; line-height: 1.3; color: var(--yellow); text-transform: uppercase; }
 
-    .section-body {
-      color: var(--text-dim);
-      max-width: 680px;
-      margin: 0 auto;
-      font-size: 1.05rem;
-    }
+    .stats-strip { background: var(--yellow); padding: 40px; display: flex; justify-content: center; gap: 80px; flex-wrap: wrap; }
+    .stat { text-align: center; }
+    .stat-number { font-family: Impact, 'Arial Narrow', sans-serif; font-size: 3.5rem; color: var(--black); line-height: 1; }
+    .stat-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(0,0,0,0.55); margin-top: 4px; }
 
-    .quote-block {
-      border-left: 4px solid var(--yellow);
-      padding: 20px 32px;
-      margin: 60px auto;
-      max-width: 720px;
-      text-align: left;
-      background: var(--gray);
-    }
-
-    .quote-block p {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: clamp(1.4rem, 3.5vw, 2rem);
-      letter-spacing: 0.02em;
-      line-height: 1.3;
-      color: var(--yellow);
-      text-transform: uppercase;
-    }
-
-    /* ── STATS STRIP ── */
-    .stats-strip {
-      background: var(--yellow);
-      padding: 40px;
-      display: flex;
-      justify-content: center;
-      gap: 80px;
-      flex-wrap: wrap;
-    }
-
-    .stat {
-      text-align: center;
-    }
-
-    .stat-number {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: 3rem;
-      color: var(--black);
-      line-height: 1;
-      letter-spacing: -0.02em;
-    }
-
-    .stat-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(0,0,0,0.6);
-      margin-top: 4px;
-    }
-
-    /* ── HOW IT WORKS ── */
-    .how {
-      padding: 100px 40px;
-      background: var(--black);
-    }
-
-    .how-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .how-header {
-      text-align: center;
-      margin-bottom: 72px;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2px;
-    }
-
-    .step {
-      background: var(--dark);
-      padding: 48px 36px;
-      position: relative;
-      border-top: 3px solid transparent;
-      transition: border-color 0.2s;
-    }
-
+    .how { padding: 100px 40px; background: var(--black); }
+    .how-inner { max-width: 1100px; margin: 0 auto; }
+    .how-header { text-align: center; margin-bottom: 72px; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2px; }
+    .step { background: var(--dark); padding: 48px 36px; border-top: 3px solid transparent; transition: border-color 0.2s; }
     .step:hover { border-color: var(--yellow); }
-
-    .step-num {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: 5rem;
-      color: rgba(255,230,0,0.1);
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .step-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 800;
-      font-size: 1.4rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--yellow);
-      margin-bottom: 12px;
-    }
-
+    .step-num { font-family: Impact, 'Arial Narrow', sans-serif; font-size: 5rem; color: rgba(255,230,0,0.1); line-height: 1; margin-bottom: 8px; }
+    .step-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.4rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--yellow); margin-bottom: 12px; }
     .step-body { color: var(--text-dim); font-size: 0.95rem; }
 
-    /* ── FOOD GROUPS ── */
-    .foods {
-      padding: 100px 40px;
-      background: var(--dark);
-    }
-
-    .foods-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .foods-header {
-      text-align: center;
-      margin-bottom: 72px;
-    }
-
-    .food-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 2px;
-    }
-
-    .food-card {
-      background: var(--gray);
-      padding: 40px 24px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.2s;
-    }
-
-    .food-card::before {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--yellow);
-      transform: scaleX(0);
-      transition: transform 0.3s;
-    }
-
+    .foods { padding: 100px 40px; background: var(--dark); }
+    .foods-inner { max-width: 1100px; margin: 0 auto; }
+    .foods-header { text-align: center; margin-bottom: 72px; }
+    .food-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; }
+    .food-card { background: var(--gray); padding: 40px 24px; text-align: center; position: relative; overflow: hidden; transition: transform 0.2s; }
+    .food-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--yellow); transform: scaleX(0); transition: transform 0.3s; }
     .food-card:hover { transform: translateY(-4px); }
     .food-card:hover::before { transform: scaleX(1); }
-
-    .food-icon {
-      font-size: 2.8rem;
-      margin-bottom: 16px;
-      display: block;
-    }
-
-    .food-name {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: 1.3rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--yellow);
-      margin-bottom: 10px;
-    }
-
+    .food-icon { font-size: 2.8rem; margin-bottom: 16px; display: block; }
+    .food-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.3rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--yellow); margin-bottom: 10px; }
     .food-desc { color: var(--text-dim); font-size: 0.88rem; line-height: 1.5; }
 
-    /* ── SCIENCE ── */
-    .science {
-      padding: 100px 40px;
-      background: var(--black);
-    }
-
-    .science-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
+    .science { padding: 100px 40px; background: var(--black); }
+    .science-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     .science-text .section-title { text-align: left; margin-bottom: 20px; }
     .science-text .section-label { text-align: left; }
     .science-text .section-body { margin: 0; margin-bottom: 20px; }
+    .science-formula { background: var(--dark); border: 2px solid var(--yellow); padding: 48px 40px; }
+    .formula-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow-dim); margin-bottom: 32px; }
+    .formula-row { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+    .formula-item { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.1rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text); background: var(--gray-mid); padding: 10px 20px; flex: 1; text-align: center; }
+    .formula-plus { color: var(--yellow); font-family: Impact, sans-serif; font-size: 1.5rem; }
+    .formula-result { border-top: 2px solid var(--yellow); padding-top: 24px; margin-top: 16px; }
+    .formula-result-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px; }
+    .formula-result-value { font-family: Impact, 'Arial Narrow', sans-serif; font-size: 1.8rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--yellow); }
 
-    .science-formula {
-      background: var(--dark);
-      border: 2px solid var(--yellow);
-      padding: 48px 40px;
-    }
-
-    .formula-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--yellow-dim);
-      margin-bottom: 32px;
-    }
-
-    .formula-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-
-    .formula-item {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 800;
-      font-size: 1.1rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text);
-      background: var(--gray-mid);
-      padding: 10px 20px;
-      flex: 1;
-      text-align: center;
-    }
-
-    .formula-plus {
-      color: var(--yellow);
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: 1.5rem;
-    }
-
-    .formula-result {
-      border-top: 2px solid var(--yellow);
-      padding-top: 24px;
-      margin-top: 16px;
-    }
-
-    .formula-result-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      margin-bottom: 8px;
-    }
-
-    .formula-result-value {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: 1.6rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--yellow);
-    }
-
-    /* ── WHO IS IT FOR ── */
-    .who {
-      padding: 100px 40px;
-      background: var(--dark);
-    }
-
-    .who-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
+    .who { padding: 100px 40px; background: var(--dark); }
+    .who-inner { max-width: 1100px; margin: 0 auto; }
     .who-header { text-align: center; margin-bottom: 72px; }
-
-    .who-cards {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3px;
-    }
-
-    .who-card {
-      background: var(--gray);
-      padding: 56px 48px;
-      position: relative;
-    }
-
-    .who-card.featured {
-      background: var(--yellow);
-    }
-
-    .who-card-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--yellow);
-      margin-bottom: 12px;
-    }
-
+    .who-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+    .who-card { background: var(--gray); padding: 56px 48px; }
+    .who-card.featured { background: var(--yellow); }
+    .who-card-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 12px; }
     .who-card.featured .who-card-label { color: rgba(0,0,0,0.5); }
-
-    .who-card-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: 2.2rem;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-      color: var(--text);
-      margin-bottom: 20px;
-    }
-
+    .who-card-title { font-family: Impact, 'Arial Narrow', sans-serif; font-size: 2.4rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text); margin-bottom: 20px; }
     .who-card.featured .who-card-title { color: var(--black); }
-
     .who-card-body { color: var(--text-dim); font-size: 0.95rem; line-height: 1.7; }
     .who-card.featured .who-card-body { color: rgba(0,0,0,0.65); }
-
-    .who-list {
-      margin-top: 24px;
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .who-list li {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 600;
-      font-size: 1rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      padding-left: 20px;
-      position: relative;
-      color: var(--text);
-    }
-
+    .who-list { margin-top: 24px; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .who-list li { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 1rem; letter-spacing: 0.05em; text-transform: uppercase; padding-left: 20px; position: relative; color: var(--text); }
     .who-card.featured .who-list li { color: var(--black); }
-
-    .who-list li::before {
-      content: '▶';
-      position: absolute;
-      left: 0;
-      color: var(--yellow);
-      font-size: 0.6rem;
-      top: 3px;
-    }
-
+    .who-list li::before { content: '▶'; position: absolute; left: 0; color: var(--yellow); font-size: 0.6rem; top: 3px; }
     .who-card.featured .who-list li::before { color: var(--black); }
 
-    /* ── FEATURES ── */
-    .features {
-      padding: 100px 40px;
-      background: var(--black);
-    }
-
-    .features-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
+    .features { padding: 100px 40px; background: var(--black); }
+    .features-inner { max-width: 1100px; margin: 0 auto; }
     .features-header { text-align: center; margin-bottom: 72px; }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-    }
-
-    .feature {
-      background: var(--dark);
-      padding: 40px 32px;
-      border-left: 3px solid transparent;
-      transition: border-color 0.2s;
-    }
-
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .feature { background: var(--dark); padding: 40px 32px; border-left: 3px solid transparent; transition: border-color 0.2s; }
     .feature:hover { border-color: var(--yellow); }
-
-    .feature-icon {
-      font-size: 2rem;
-      margin-bottom: 16px;
-      display: block;
-    }
-
-    .feature-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 800;
-      font-size: 1.15rem;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--yellow);
-      margin-bottom: 10px;
-    }
-
+    .feature-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+    .feature-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.15rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--yellow); margin-bottom: 10px; }
     .feature-body { color: var(--text-dim); font-size: 0.92rem; line-height: 1.6; }
 
-    /* ── TESTIMONIALS ── */
-    .testimonials {
-      padding: 100px 40px;
-      background: var(--dark);
-    }
-
-    .testimonials-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
+    .testimonials { padding: 100px 40px; background: var(--dark); }
+    .testimonials-inner { max-width: 1000px; margin: 0 auto; }
     .testimonials-header { text-align: center; margin-bottom: 64px; }
+    .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2px; }
+    .testi { background: var(--gray); padding: 40px 36px; position: relative; }
+    .testi::before { content: '"'; font-family: Impact, sans-serif; font-size: 6rem; color: var(--yellow); line-height: 1; opacity: 0.2; position: absolute; top: 16px; left: 28px; }
+    .testi-text { color: var(--text); font-size: 0.97rem; line-height: 1.7; margin-bottom: 24px; position: relative; z-index: 1; }
+    .testi-author { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--yellow); }
 
-    .testi-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2px;
-    }
-
-    .testi {
-      background: var(--gray);
-      padding: 40px 36px;
-      position: relative;
-    }
-
-    .testi::before {
-      content: '"';
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: 6rem;
-      color: var(--yellow);
-      line-height: 1;
-      opacity: 0.3;
-      position: absolute;
-      top: 16px;
-      left: 28px;
-    }
-
-    .testi-text {
-      color: var(--text);
-      font-size: 0.97rem;
-      line-height: 1.7;
-      margin-bottom: 24px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .testi-author {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.8rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--yellow);
-    }
-
-    /* ── PRICING ── */
-    .pricing {
-      padding: 100px 40px;
-      background: var(--black);
-      text-align: center;
-    }
-
+    .pricing { padding: 100px 40px; background: var(--black); text-align: center; }
     .pricing-inner { max-width: 560px; margin: 0 auto; }
+    .price-box { border: 2px solid var(--yellow); padding: 64px 48px; margin: 48px 0; }
+    .price-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow-dim); margin-bottom: 20px; }
+    .price-amount { font-family: Impact, 'Arial Narrow', sans-serif; font-size: 6rem; color: var(--yellow); line-height: 1; margin-bottom: 8px; }
+    .price-period { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 40px; }
+    .price-includes { list-style: none; margin-bottom: 40px; display: flex; flex-direction: column; gap: 12px; }
+    .price-includes li { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 1.05rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text); padding: 10px 0; border-bottom: 1px solid var(--gray-mid); }
 
-    .price-box {
-      border: 2px solid var(--yellow);
-      padding: 64px 48px;
-      margin: 48px 0;
-    }
-
-    .price-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--yellow-dim);
-      margin-bottom: 20px;
-    }
-
-    .price-amount {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: 5rem;
-      color: var(--yellow);
-      line-height: 1;
-      margin-bottom: 8px;
-      letter-spacing: -0.02em;
-    }
-
-    .price-period {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 600;
-      font-size: 1rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      margin-bottom: 40px;
-    }
-
-    .price-includes {
-      list-style: none;
-      margin-bottom: 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .price-includes li {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 600;
-      font-size: 1.05rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--text);
-      padding: 10px 0;
-      border-bottom: 1px solid var(--gray-mid);
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--dark);
-      border-top: 2px solid var(--gray-mid);
-      padding: 48px 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
-    }
-
-    .footer-logo {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: 1.2rem;
-      letter-spacing: 0.1em;
-      color: var(--yellow);
-      text-transform: uppercase;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .footer-links a {
-      color: var(--text-dim);
-      text-decoration: none;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 600;
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-
+    footer { background: var(--dark); border-top: 2px solid var(--gray-mid); padding: 48px 40px; display: flex; flex-direction: column; align-items: center; gap: 24px; }
+    .footer-logo { font-family: Impact, 'Arial Narrow', sans-serif; font-size: 1.3rem; letter-spacing: 0.1em; color: var(--yellow); text-transform: uppercase; }
+    .footer-links { display: flex; gap: 32px; list-style: none; flex-wrap: wrap; justify-content: center; }
+    .footer-links a { color: var(--text-dim); text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
     .footer-links a:hover { color: var(--yellow); }
+    .footer-copy { color: var(--text-dim); font-size: 0.8rem; }
 
-    .footer-copy {
-      color: var(--text-dim);
-      font-size: 0.8rem;
-    }
-
-    /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       nav { padding: 0 20px; }
       .nav-links { gap: 20px; }
@@ -801,7 +159,6 @@
       .features-grid { grid-template-columns: 1fr 1fr; }
       .stats-strip { gap: 40px; }
     }
-
     @media (max-width: 600px) {
       nav { padding: 0 16px; }
       .nav-links { display: none; }
@@ -809,12 +166,12 @@
       .food-grid { grid-template-columns: 1fr 1fr; }
       .features-grid { grid-template-columns: 1fr; }
       .formula-row { flex-wrap: wrap; }
+      .who-card { padding: 40px 28px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">The HARDKOR Diet</a>
     <ul class="nav-links">
@@ -825,65 +182,39 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
     <p class="hero-eyebrow">8-Week Contest Prep Diet Program</p>
-    <img
-      src="HARDKORdietart_2.png"
-      alt="The HARDKOR Diet — Your Effort Defines You"
-      class="hero-logo"
-    />
-    <p class="hero-tagline">Your Effort Defines You</p>
-    <h1 class="hero-headline">
-      Keep the Lean.<br /><span>Lose the Fat.</span>
-    </h1>
-    <p class="hero-sub">
-      A precision diet built to maximize fat loss and preserve every ounce of muscle. Not a template. Not a guess. Your plan.
-    </p>
+    <div class="wordmark">
+      <div class="wordmark-top">
+        <span class="wordmark-the">THE</span>
+        <span class="wordmark-diet">DIET</span>
+      </div>
+      <div class="wordmark-main">HARDKOR</div>
+      <div class="wordmark-tagline">Your Effort Defines You</div>
+    </div>
+    <h1 class="hero-headline">Keep the Lean.<br /><span>Lose the Fat.</span></h1>
+    <p class="hero-sub">A precision diet built to maximize fat loss and preserve every ounce of muscle. Not a template. Not a guess. Your plan.</p>
     <a href="#pricing" class="btn-primary">Start Your 8 Weeks</a>
     <p class="hero-disclaimer">No fluff. No excuses. Just results.</p>
   </section>
 
   <div class="divider"></div>
 
-  <!-- PHILOSOPHY -->
   <section class="philosophy">
     <p class="section-label">The HARDKOR Philosophy</p>
     <h2 class="section-title">Most Diets Get It <span>Wrong.</span></h2>
-    <p class="section-body">
-      Most diets promise fast weight loss — and deliver it by destroying your muscle in the process. When the muscle goes, the metabolism goes with it. You hit a plateau, you stall, and you're back where you started.
-    </p>
-
-    <div class="quote-block">
-      <p>If it's taking too long,<br />you're doing it wrong.</p>
-    </div>
-
-    <p class="section-body">
-      HARDKOR is different. This system has been producing real results since 1982. The principle is simple: keep your lean body mass, and your body burns fat around the clock. Lose the lean, and you lose everything.
-    </p>
+    <p class="section-body">Most diets promise fast weight loss — and deliver it by destroying your muscle in the process. When the muscle goes, the metabolism goes with it. You hit a plateau, you stall, and you're back where you started.</p>
+    <div class="quote-block"><p>If it's taking too long,<br />you're doing it wrong.</p></div>
+    <p class="section-body">HARDKOR is different. This system has been producing real results since 1982. The principle is simple: keep your lean body mass, and your body burns fat around the clock. Lose the lean, and you lose everything.</p>
   </section>
 
-  <!-- STATS STRIP -->
   <div class="stats-strip">
-    <div class="stat">
-      <div class="stat-number">8</div>
-      <div class="stat-label">Week Program</div>
-    </div>
-    <div class="stat">
-      <div class="stat-number">5</div>
-      <div class="stat-label">Food Groups</div>
-    </div>
-    <div class="stat">
-      <div class="stat-number">40+</div>
-      <div class="stat-label">Years of Results</div>
-    </div>
-    <div class="stat">
-      <div class="stat-number">0</div>
-      <div class="stat-label">Guesswork</div>
-    </div>
+    <div class="stat"><div class="stat-number">8</div><div class="stat-label">Week Program</div></div>
+    <div class="stat"><div class="stat-number">5</div><div class="stat-label">Food Groups</div></div>
+    <div class="stat"><div class="stat-number">40+</div><div class="stat-label">Years of Results</div></div>
+    <div class="stat"><div class="stat-number">0</div><div class="stat-label">Guesswork</div></div>
   </div>
 
-  <!-- HOW IT WORKS -->
   <section class="how" id="how">
     <div class="how-inner">
       <div class="how-header">
@@ -891,118 +222,54 @@
         <h2 class="section-title">How <span>HARDKOR</span> Works</h2>
       </div>
       <div class="steps">
-        <div class="step">
-          <div class="step-num">01</div>
-          <div class="step-title">Enter Your Stats</div>
-          <p class="step-body">Your lean body mass, your job, your daily activities and lifestyle. Real data, not guesses. This is what separates your plan from everyone else's.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">02</div>
-          <div class="step-title">Get Your Plan</div>
-          <p class="step-body">The HARDKOR engine calculates your exact daily servings across 5 food groups. No calorie counting. No macro math. Just your numbers.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">03</div>
-          <div class="step-title">Eat Your Plan</div>
-          <p class="step-body">Tap your food choices each day. Build your meals from 278 precision-selected foods. Your grocery list builds itself as you go.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">04</div>
-          <div class="step-title">Peak at Week 8</div>
-          <p class="step-body">Eight weeks. Maximum fat loss. Lean muscle preserved. This is how athletes prep for competition — and how everyday people transform their physique.</p>
-        </div>
+        <div class="step"><div class="step-num">01</div><div class="step-title">Enter Your Stats</div><p class="step-body">Your lean body mass, your job, your daily activities and lifestyle. Real data, not guesses. This is what separates your plan from everyone else's.</p></div>
+        <div class="step"><div class="step-num">02</div><div class="step-title">Get Your Plan</div><p class="step-body">The HARDKOR engine calculates your exact daily servings across 5 food groups. No calorie counting. No macro math. Just your numbers.</p></div>
+        <div class="step"><div class="step-num">03</div><div class="step-title">Eat Your Plan</div><p class="step-body">Tap your food choices each day. Build your meals from 278 precision-selected foods. Your grocery list builds itself as you go.</p></div>
+        <div class="step"><div class="step-num">04</div><div class="step-title">Peak at Week 8</div><p class="step-body">Eight weeks. Maximum fat loss. Lean muscle preserved. This is how athletes prep for competition — and how everyday people transform their physique.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- FOOD GROUPS -->
   <section class="foods" id="food">
     <div class="foods-inner">
       <div class="foods-header">
         <p class="section-label">The HARDKOR Plan</p>
         <h2 class="section-title">Five Groups. <span>Zero Compromise.</span></h2>
-        <p class="section-body" style="margin: 0 auto; max-width: 600px; color: var(--text-dim);">
-          Every food in the HARDKOR program was chosen for a reason. 278 foods pulled from 350,000 in the USDA database — the ones that work.
-        </p>
+        <p class="section-body" style="margin:0 auto;max-width:600px;color:var(--text-dim);">Every food in the HARDKOR program was chosen for a reason. 278 foods pulled from 350,000 in the USDA database — the ones that work.</p>
       </div>
       <div class="food-grid">
-        <div class="food-card">
-          <span class="food-icon">🥩</span>
-          <div class="food-name">Protein</div>
-          <p class="food-desc">Repairs and rebuilds muscle tissue. Non-negotiable on a program designed to keep your lean.</p>
-        </div>
-        <div class="food-card">
-          <span class="food-icon">🌾</span>
-          <div class="food-name">Grains</div>
-          <p class="food-desc">Sustained energy for training and daily output. Timed and measured to fuel performance.</p>
-        </div>
-        <div class="food-card">
-          <span class="food-icon">🥔</span>
-          <div class="food-name">Starches</div>
-          <p class="food-desc">Complex carbohydrates that feed your muscles and keep your energy stable through the program.</p>
-        </div>
-        <div class="food-card">
-          <span class="food-icon">🥦</span>
-          <div class="food-name">Veggies</div>
-          <p class="food-desc">Volume, micronutrients, and fiber. Eat more, stay full, and keep your body running clean.</p>
-        </div>
-        <div class="food-card">
-          <span class="food-icon">🍎</span>
-          <div class="food-name">Fruits</div>
-          <p class="food-desc">Natural sugars timed for recovery and energy. An essential part of the HARDKOR system.</p>
-        </div>
+        <div class="food-card"><span class="food-icon">🥩</span><div class="food-name">Protein</div><p class="food-desc">Repairs and rebuilds muscle tissue. Non-negotiable on a program designed to keep your lean.</p></div>
+        <div class="food-card"><span class="food-icon">🌾</span><div class="food-name">Grains</div><p class="food-desc">Sustained energy for training and daily output. Timed and measured to fuel performance.</p></div>
+        <div class="food-card"><span class="food-icon">🥔</span><div class="food-name">Starches</div><p class="food-desc">Complex carbohydrates that feed your muscles and keep your energy stable through the program.</p></div>
+        <div class="food-card"><span class="food-icon">🥦</span><div class="food-name">Veggies</div><p class="food-desc">Volume, micronutrients, and fiber. Eat more, stay full, and keep your body running clean.</p></div>
+        <div class="food-card"><span class="food-icon">🍎</span><div class="food-name">Fruits</div><p class="food-desc">Natural sugars timed for recovery and energy. An essential part of the HARDKOR system.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- SCIENCE -->
   <section class="science">
     <div class="science-inner">
       <div class="science-text">
         <p class="section-label">The Science</p>
         <h2 class="section-title">How Your Body <span>Burns Fat</span></h2>
-        <p class="section-body">
-          Most people think fat loss is simple math — eat less, lose more. But your body doesn't work that way. The moment you sacrifice lean body mass, your metabolism slows and fat burning stalls.
-        </p>
+        <p class="section-body">Most people think fat loss is simple math — eat less, lose more. But your body doesn't work that way. The moment you sacrifice lean body mass, your metabolism slows and fat burning stalls.</p>
         <br />
-        <p class="section-body">
-          HARDKOR is engineered around the science of body recomposition. Protect the muscle. Feed it the right foods at the right time. And your body does what it was designed to do — burn fat.
-        </p>
+        <p class="section-body">HARDKOR is engineered around the science of body recomposition. Protect the muscle. Feed it the right foods at the right time. And your body does what it was designed to do — burn fat.</p>
         <br />
-        <div class="quote-block" style="margin: 32px 0 0; padding: 16px 24px;">
-          <p style="font-size: 1.1rem;">Keep the lean — keep the metabolism.</p>
-        </div>
+        <div class="quote-block" style="margin:32px 0 0;padding:16px 24px;"><p style="font-size:1.1rem;">Keep the lean — keep the metabolism.</p></div>
       </div>
       <div class="science-formula">
         <div class="formula-title">The HARDKOR Formula</div>
-        <div class="formula-row">
-          <div class="formula-item">Lean Body Mass</div>
-          <div class="formula-plus">+</div>
-        </div>
-        <div class="formula-row">
-          <div class="formula-item">Your Diet</div>
-          <div class="formula-plus">+</div>
-        </div>
-        <div class="formula-row">
-          <div class="formula-item">Protein</div>
-          <div class="formula-plus">+</div>
-        </div>
-        <div class="formula-row">
-          <div class="formula-item">Carbs</div>
-          <div class="formula-plus">+</div>
-        </div>
-        <div class="formula-row">
-          <div class="formula-item">Activities</div>
-        </div>
-        <div class="formula-result">
-          <div class="formula-result-label">Equals</div>
-          <div class="formula-result-value">Maximum Fat Burn</div>
-        </div>
+        <div class="formula-row"><div class="formula-item">Lean Body Mass</div><div class="formula-plus">+</div></div>
+        <div class="formula-row"><div class="formula-item">Your Diet</div><div class="formula-plus">+</div></div>
+        <div class="formula-row"><div class="formula-item">Protein</div><div class="formula-plus">+</div></div>
+        <div class="formula-row"><div class="formula-item">Carbs</div><div class="formula-plus">+</div></div>
+        <div class="formula-row"><div class="formula-item">Activities</div></div>
+        <div class="formula-result"><div class="formula-result-label">Equals</div><div class="formula-result-value">Maximum Fat Burn</div></div>
       </div>
     </div>
   </section>
 
-  <!-- WHO IS IT FOR -->
   <section class="who" id="who">
     <div class="who-inner">
       <div class="who-header">
@@ -1015,9 +282,9 @@
           <h3 class="who-card-title">Contest Prep Athletes</h3>
           <p class="who-card-body">HARDKOR was built in the gym. This is the same precision approach used by competitive bodybuilders to peak on stage.</p>
           <ul class="who-list">
-            <li>Bodybuilding & Physique Competitors</li>
+            <li>Bodybuilding &amp; Physique Competitors</li>
             <li>Powerlifters Cutting for a Weight Class</li>
-            <li>Fitness & Figure Athletes</li>
+            <li>Fitness &amp; Figure Athletes</li>
             <li>Anyone Chasing a Competition Peak</li>
           </ul>
         </div>
@@ -1036,7 +303,6 @@
     </div>
   </section>
 
-  <!-- FEATURES -->
   <section class="features">
     <div class="features-inner">
       <div class="features-header">
@@ -1044,41 +310,16 @@
         <h2 class="section-title">Everything You Need. <span>Nothing You Don't.</span></h2>
       </div>
       <div class="features-grid">
-        <div class="feature">
-          <span class="feature-icon">⚡</span>
-          <div class="feature-title">Custom Plan, Your Numbers</div>
-          <p class="feature-body">Calculated from your lean body mass, job, lifestyle, and activities. Your plan is yours alone. Not a template. Not a guess.</p>
-        </div>
-        <div class="feature">
-          <span class="feature-icon">👆</span>
-          <div class="feature-title">Tap to Build Your Meals</div>
-          <p class="feature-body">Select your foods with a tap. Your daily plan builds itself from 278 curated foods chosen specifically for fat loss and muscle retention.</p>
-        </div>
-        <div class="feature">
-          <span class="feature-icon">🛒</span>
-          <div class="feature-title">Automatic Grocery List</div>
-          <p class="feature-body">Every food you tap goes straight to your weekly shopping list. Walk in, buy it, done. No thinking required.</p>
-        </div>
-        <div class="feature">
-          <span class="feature-icon">⏰</span>
-          <div class="feature-title">Meal Timing</div>
-          <p class="feature-body">When you eat matters as much as what you eat. Your plan includes optimized meal timing with reminders to keep you on track all day.</p>
-        </div>
-        <div class="feature">
-          <span class="feature-icon">📅</span>
-          <div class="feature-title">8-Week Progression</div>
-          <p class="feature-body">A structured 8-week arc with a clear start and a clear finish. Built to peak — whether that's a competition, an event, or a personal goal.</p>
-        </div>
-        <div class="feature">
-          <span class="feature-icon">🔬</span>
-          <div class="feature-title">40+ Years of Science</div>
-          <p class="feature-body">Not a trend. Not a hack. A system refined over four decades that has produced results for competitors and everyday people alike.</p>
-        </div>
+        <div class="feature"><span class="feature-icon">⚡</span><div class="feature-title">Custom Plan, Your Numbers</div><p class="feature-body">Calculated from your lean body mass, job, lifestyle, and activities. Your plan is yours alone. Not a template. Not a guess.</p></div>
+        <div class="feature"><span class="feature-icon">👆</span><div class="feature-title">Tap to Build Your Meals</div><p class="feature-body">Select your foods with a tap. Your daily plan builds itself from 278 curated foods chosen specifically for fat loss and muscle retention.</p></div>
+        <div class="feature"><span class="feature-icon">🛒</span><div class="feature-title">Automatic Grocery List</div><p class="feature-body">Every food you tap goes straight to your weekly shopping list. Walk in, buy it, done. No thinking required.</p></div>
+        <div class="feature"><span class="feature-icon">⏰</span><div class="feature-title">Meal Timing</div><p class="feature-body">When you eat matters as much as what you eat. Your plan includes optimized meal timing with reminders to keep you on track all day.</p></div>
+        <div class="feature"><span class="feature-icon">📅</span><div class="feature-title">8-Week Progression</div><p class="feature-body">A structured 8-week arc with a clear start and a clear finish. Built to peak — whether that's a competition, an event, or a personal goal.</p></div>
+        <div class="feature"><span class="feature-icon">🔬</span><div class="feature-title">40+ Years of Science</div><p class="feature-body">Not a trend. Not a hack. A system refined over four decades that has produced results for competitors and everyday people alike.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
   <section class="testimonials">
     <div class="testimonials-inner">
       <div class="testimonials-header">
@@ -1086,31 +327,20 @@
         <h2 class="section-title">What They're <span>Saying</span></h2>
       </div>
       <div class="testi-grid">
-        <div class="testi">
-          <p class="testi-text">I learned this program in 1992 and it has been invaluable. I almost bought into the chatter that you just have to eat less as you get older — and then I remembered what I learned all those years ago. At 67, I am confident I can maintain and even build muscle and lose fat.</p>
-          <div class="testi-author">Linda Kay — Client Since 1992</div>
-        </div>
-        <div class="testi">
-          <p class="testi-text">If you want to see real results like you never thought possible, this is the plan to be on. It dials everything in for each person. It's not a cookie-cutter diet.</p>
-          <div class="testi-author">Dave McAferty — Client Since 1990</div>
-        </div>
-        <div class="testi">
-          <p class="testi-text">First impressions are everything, and my first impression is a 10 out of 10. This is exactly what I've been looking for — precision, not guesswork.</p>
-          <div class="testi-author">Scott Horan</div>
-        </div>
+        <div class="testi"><p class="testi-text">I learned this program in 1992 and it has been invaluable. I almost bought into the chatter that you just have to eat less as you get older — and then I remembered what I learned all those years ago. At 67, I am confident I can maintain and even build muscle and lose fat.</p><div class="testi-author">Linda Kay — Client Since 1992</div></div>
+        <div class="testi"><p class="testi-text">If you want to see real results like you never thought possible, this is the plan to be on. It dials everything in for each person. It's not a cookie-cutter diet.</p><div class="testi-author">Dave McAferty — Client Since 1990</div></div>
+        <div class="testi"><p class="testi-text">First impressions are everything, and my first impression is a 10 out of 10. This is exactly what I've been looking for — precision, not guesswork.</p><div class="testi-author">Scott Horan</div></div>
       </div>
     </div>
   </section>
 
-  <!-- PRICING -->
   <section class="pricing" id="pricing">
     <div class="pricing-inner">
       <p class="section-label">Get Started</p>
       <h2 class="section-title">One Price. <span>Full Program.</span></h2>
-
       <div class="price-box">
         <div class="price-label">The Complete 8-Week HARDKOR Diet</div>
-        <div class="price-amount">$39</div>
+        <div class="price-amount">$149</div>
         <div class="price-period">One-time — Full 8-week access</div>
         <ul class="price-includes">
           <li>Custom Diet Plan — Your Numbers</li>
@@ -1119,16 +349,12 @@
           <li>Meal Timing &amp; Daily Reminders</li>
           <li>Full 8-Week Program Progression</li>
         </ul>
-        <a href="#" class="btn-primary" style="opacity:1;animation:none;">Start HARDKOR Now</a>
+        <a href="#" class="btn-primary">Start HARDKOR Now</a>
       </div>
-
-      <p style="color:var(--text-dim); font-size:0.88rem;">
-        This is a difficult program. It is not for everyone.<br />If you commit, it works.
-      </p>
+      <p style="color:var(--text-dim);font-size:0.88rem;">This is a difficult program. It is not for everyone.<br />If you commit, it works.</p>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-logo">The HARDKOR Diet</div>
     <ul class="footer-links">
