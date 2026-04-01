@@ -27,39 +27,27 @@
     .nav-links a { color: var(--text); text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--yellow); }
 
-    .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 40px 80px; position: relative; overflow: hidden; }
+    .hero { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 140px 40px 20px; position: relative; overflow: hidden; }
     .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 60%, rgba(255,230,0,0.07) 0%, transparent 70%), repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,230,0,0.03) 60px, rgba(255,230,0,0.03) 61px); pointer-events: none; }
 
     .wordmark { display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 900px; margin-bottom: 16px; opacity: 0; animation: fadeUp 0.7s 0.3s forwards; }
-    .wordmark-top { display: flex; justify-content: space-between; width: 100%; padding: 0 6px; line-height: 1; }
-    .wordmark-the, .wordmark-diet { font-family: Impact, 'Arial Narrow', sans-serif; font-size: clamp(1.2rem, 2.5vw, 2rem); color: var(--yellow); letter-spacing: 0.1em; text-transform: uppercase; }
     .wordmark-main { font-family: Impact, 'Arial Narrow', sans-serif; font-size: clamp(4.5rem, 17vw, 13rem); color: var(--yellow); letter-spacing: 0.04em; line-height: 0.88; text-transform: uppercase; }
     .wordmark-tagline { font-family: 'Barlow Condensed', sans-serif; font-weight: 400; font-style: italic; font-size: clamp(1rem, 2.5vw, 1.5rem); color: var(--yellow-dim); letter-spacing: 0.04em; margin-top: 8px; }
 
     .hero-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--yellow); margin-bottom: 20px; opacity: 0; animation: fadeUp 0.7s 0.1s forwards; }
-    .hero-headline { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2rem, 6vw, 4.5rem); line-height: 1.05; text-transform: uppercase; letter-spacing: 0.02em; max-width: 900px; margin: 24px 0 16px; opacity: 0; animation: fadeUp 0.7s 0.6s forwards; }
+    .hero-headline { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2rem, 6vw, 4.5rem); line-height: 1.05; text-transform: uppercase; letter-spacing: 0.02em; max-width: 900px; margin: 24px 0 16px; opacity: 0; animation: fadeUp 0.7s 0.6s forwards; color: #ffffff; }
     .hero-headline span { color: var(--yellow); }
-    .hero-sub { font-size: 1.05rem; color: var(--text-dim); max-width: 540px; margin-bottom: 40px; opacity: 0; animation: fadeUp 0.7s 0.8s forwards; }
-    .btn-primary { display: inline-block; background: var(--yellow); color: var(--black); font-family: Impact, 'Arial Narrow', sans-serif; font-size: 1.2rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 18px 56px; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; opacity: 0; animation: fadeUp 0.7s 1s forwards; }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(255,230,0,0.35); }
-    .hero-disclaimer { font-size: 0.8rem; color: var(--text-dim); margin-top: 14px; opacity: 0; animation: fadeUp 0.7s 1.1s forwards; }
-
     @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
     .divider { height: 3px; background: linear-gradient(90deg, transparent, var(--yellow), transparent); }
 
-    .philosophy { background: var(--dark); padding: 100px 40px; text-align: center; }
+    .philosophy { background: var(--black); padding: 100px 40px; text-align: center; }
     .section-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 16px; }
     .section-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2rem, 5vw, 3.5rem); text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.1; margin-bottom: 24px; }
     .section-title span { color: var(--yellow); }
     .section-body { color: var(--text-dim); max-width: 680px; margin: 0 auto; font-size: 1.05rem; }
-    .quote-block { border-left: 4px solid var(--yellow); padding: 20px 32px; margin: 60px auto; max-width: 720px; text-align: left; background: var(--gray); }
-    .quote-block p { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(1.4rem, 3.5vw, 2rem); letter-spacing: 0.02em; line-height: 1.3; color: var(--yellow); text-transform: uppercase; }
-
-    .stats-strip { background: var(--yellow); padding: 40px; display: flex; justify-content: center; gap: 80px; flex-wrap: wrap; }
-    .stat { text-align: center; }
-    .stat-number { font-family: Impact, 'Arial Narrow', sans-serif; font-size: 3.5rem; color: var(--black); line-height: 1; }
-    .stat-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(0,0,0,0.55); margin-top: 4px; }
+    .quote-block { border-left: 4px solid var(--yellow); padding: 20px 32px; margin: 60px auto; max-width: 900px; text-align: left; background: var(--gray); }
+    .quote-block p { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(1.2rem, 2.5vw, 1.6rem); letter-spacing: 0.02em; line-height: 1.3; color: var(--yellow); text-transform: uppercase; white-space: nowrap; }
 
     .how { padding: 100px 40px; background: var(--black); }
     .how-inner { max-width: 1100px; margin: 0 auto; }
@@ -71,7 +59,7 @@
     .step-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.4rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--yellow); margin-bottom: 12px; }
     .step-body { color: var(--text-dim); font-size: 0.95rem; }
 
-    .foods { padding: 100px 40px; background: var(--dark); }
+    .foods { padding: 100px 40px; background: var(--black); }
     .foods-inner { max-width: 1100px; margin: 0 auto; }
     .foods-header { text-align: center; margin-bottom: 72px; }
     .food-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; }
@@ -89,15 +77,19 @@
     .science-text .section-label { text-align: left; }
     .science-text .section-body { margin: 0; margin-bottom: 20px; }
     .science-formula { background: var(--dark); border: 2px solid var(--yellow); padding: 48px 40px; }
-    .formula-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow-dim); margin-bottom: 32px; }
-    .formula-row { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
-    .formula-item { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.1rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text); background: var(--gray-mid); padding: 10px 20px; flex: 1; text-align: center; }
-    .formula-plus { color: var(--yellow); font-family: Impact, sans-serif; font-size: 1.5rem; }
-    .formula-result { border-top: 2px solid var(--yellow); padding-top: 24px; margin-top: 16px; }
-    .formula-result-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px; }
-    .formula-result-value { font-family: Impact, 'Arial Narrow', sans-serif; font-size: 1.8rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--yellow); }
+    .cal-table { width: 100%; border-collapse: collapse; margin-top: 24px; }
+    .cal-table th { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--yellow); padding: 12px 16px; border: 1px solid var(--gray-mid); text-align: center; }
+    .cal-table th:first-child { border: none; }
+    .cal-table td { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text); padding: 20px 16px; border: 1px solid var(--gray-mid); text-align: center; }
+    .cal-row-label { color: var(--yellow) !important; font-weight: 700 !important; border: none !important; text-align: left !important; padding-left: 0 !important; }
+    .marquee-strip { overflow: hidden; background: var(--black); border-top: 1px solid var(--yellow); border-bottom: 1px solid var(--yellow); padding: 14px 0; }
+    .marquee-track { display: flex; gap: 80px; width: max-content; animation: marquee 18s linear infinite; }
+    .marquee-track span { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--yellow); white-space: nowrap; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .science-cta { display: inline-block; margin-top: 32px; color: #4169e1; font-family: Impact, 'Arial Narrow', sans-serif; font-size: 1.1rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; transition: opacity 0.15s; }
+    .science-cta:hover { opacity: 0.75; }
 
-    .who { padding: 100px 40px; background: var(--dark); }
+    .who { padding: 100px 40px; background: var(--black); }
     .who-inner { max-width: 1100px; margin: 0 auto; }
     .who-header { text-align: center; margin-bottom: 72px; }
     .who-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
@@ -125,7 +117,7 @@
     .feature-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.15rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--yellow); margin-bottom: 10px; }
     .feature-body { color: var(--text-dim); font-size: 0.92rem; line-height: 1.6; }
 
-    .testimonials { padding: 100px 40px; background: var(--dark); }
+    .testimonials { padding: 100px 40px; background: var(--black); }
     .testimonials-inner { max-width: 1000px; margin: 0 auto; }
     .testimonials-header { text-align: center; margin-bottom: 64px; }
     .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2px; }
@@ -136,46 +128,49 @@
 
     .pricing { padding: 100px 40px; background: var(--black); text-align: center; }
     .pricing-inner { max-width: 560px; margin: 0 auto; }
-    .price-box { border: 2px solid var(--yellow); padding: 64px 48px; margin: 48px 0; }
+    .price-box { border: 2px solid var(--yellow); padding: 64px 48px 0; margin: 48px 0; overflow: hidden; }
     .price-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow-dim); margin-bottom: 20px; }
     .price-amount { font-family: Impact, 'Arial Narrow', sans-serif; font-size: 6rem; color: var(--yellow); line-height: 1; margin-bottom: 8px; }
     .price-period { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 40px; }
     .price-includes { list-style: none; margin-bottom: 40px; display: flex; flex-direction: column; gap: 12px; }
     .price-includes li { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 1.05rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text); padding: 10px 0; border-bottom: 1px solid var(--gray-mid); }
 
-    footer { background: var(--dark); border-top: 2px solid var(--gray-mid); padding: 48px 40px; display: flex; flex-direction: column; align-items: center; gap: 24px; }
+    footer { background: var(--black); border-top: 2px solid var(--gray-mid); padding: 48px 40px; display: flex; flex-direction: column; align-items: center; gap: 24px; }
     .footer-logo { font-family: Impact, 'Arial Narrow', sans-serif; font-size: 1.3rem; letter-spacing: 0.1em; color: var(--yellow); text-transform: uppercase; }
     .footer-links { display: flex; gap: 32px; list-style: none; flex-wrap: wrap; justify-content: center; }
     .footer-links a { color: var(--text-dim); text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
     .footer-links a:hover { color: var(--yellow); }
     .footer-copy { color: var(--text-dim); font-size: 0.8rem; }
 
-    .calculator { padding: 100px 40px; background: var(--dark); }
-    .calc-inner { max-width: 900px; margin: 0 auto; }
-    .calc-header { text-align: center; margin-bottom: 72px; }
-    .calc-form { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-bottom: 48px; }
-    .calc-field { background: var(--gray); padding: 36px 28px; }
-    .calc-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 12px; }
-    .calc-input { width: 100%; background: var(--gray-mid); border: 2px solid transparent; color: var(--text); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.6rem; letter-spacing: 0.05em; padding: 14px 16px; outline: none; transition: border-color 0.2s; appearance: none; -webkit-appearance: none; }
-    .calc-input:focus { border-color: var(--yellow); }
-    .calc-select { width: 100%; background: var(--gray-mid); border: 2px solid transparent; color: var(--text); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.6rem; letter-spacing: 0.05em; padding: 14px 16px; outline: none; cursor: pointer; transition: border-color 0.2s; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23FFE600' stroke-width='2' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; }
-    .calc-select:focus { border-color: var(--yellow); }
-    .calc-btn { display: block; width: 100%; background: var(--yellow); color: var(--black); font-family: Impact, 'Arial Narrow', sans-serif; font-size: 1.2rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 18px 0; border: none; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
-    .calc-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(255,230,0,0.35); }
-    .calc-results { display: none; }
+    .calculator { padding: 20px 40px 80px; background: var(--black); }
+    .calc-inner { max-width: 680px; margin: 0 auto; }
+    .calc-heading { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(1.4rem, 2.5vw, 2rem); text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.1; color: #fff; margin-bottom: 16px; text-align: center; }
+    .calc-intro { color: var(--text-dim); font-size: 1rem; line-height: 1.65; margin-bottom: 36px; }
+    .calc-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px; align-items: end; }
+    .calc-col { display: flex; flex-direction: column; }
+    .calc-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px; }
+    .gender-tabs { display: flex; height: 50px; border: 1.5px solid var(--gray-mid); box-sizing: border-box; }
+    .gender-tab { flex: 1; padding: 0; height: 100%; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.12em; text-transform: uppercase; border: none; cursor: pointer; transition: color 0.15s; background: var(--black); color: var(--text-dim); }
+    .gender-tab:first-child { border-right: 1px solid var(--gray-mid); }
+    .gender-tab.active { color: #4169e1; background: var(--black); }
+    .calc-input { display: block; width: 100%; height: 50px; background: var(--black); border: 1.5px solid var(--gray-mid); color: var(--text); font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 1.1rem; padding: 0 16px; outline: none; transition: border-color 0.2s; box-sizing: border-box; }
+    #calc-gender { display: none; }
+    .calc-input::placeholder { color: var(--text-dim); font-weight: 400; }
+    .calc-input:focus { border-color: #4169e1; }
+    .calc-input::-webkit-outer-spin-button, .calc-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .calc-input[type=number] { -moz-appearance: textfield; }
+    .calc-btn { display: block; width: 100%; background: none; color: #4169e1; border: none; font-family: Impact, 'Arial Narrow', sans-serif; font-size: 1.15rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 16px 0; cursor: pointer; transition: opacity 0.15s; margin-top: 8px; }
+    .calc-btn:hover { opacity: 0.75; }
+    .calc-results { display: none; margin-top: 40px; border-top: 1px solid var(--gray-mid); padding-top: 32px; }
     .calc-results.visible { display: block; }
-    .calc-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-bottom: 2px; }
-    .calc-stat { background: var(--gray); padding: 36px 24px; text-align: center; }
-    .calc-stat-value { font-family: Impact, 'Arial Narrow', sans-serif; font-size: 2.8rem; color: var(--yellow); line-height: 1; margin-bottom: 6px; }
-    .calc-stat-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); }
-    .calc-breakdown-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin: 48px 0 16px; text-align: center; }
-    .calc-timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2px; }
-    .calc-program { background: var(--gray); padding: 32px 24px; border-top: 3px solid transparent; transition: border-color 0.2s; }
-    .calc-program:last-child { border-top-color: var(--yellow); }
-    .calc-program-num { font-family: Impact, 'Arial Narrow', sans-serif; font-size: 3.5rem; color: rgba(255,230,0,0.1); line-height: 1; margin-bottom: 4px; }
-    .calc-program-weeks { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.1rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--yellow); margin-bottom: 12px; }
-    .calc-program-detail { color: var(--text-dim); font-size: 0.88rem; line-height: 1.7; }
-    .calc-program-detail strong { color: var(--text); font-weight: 600; }
+    .calc-narrative { font-size: 1.05rem; color: var(--text-dim); line-height: 1.7; margin-bottom: 32px; }
+    .calc-narrative strong { color: #fff; font-weight: 700; }
+    .calc-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+    .calc-table th { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); padding: 0 0 12px; text-align: left; border-bottom: 1px solid var(--gray-mid); }
+    .calc-table td { padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.97rem; color: var(--text); vertical-align: middle; }
+    .calc-table tr.row-current td { font-weight: 700; color: #fff; }
+    .ace-badge { display: inline-block; background: #4169e1; color: #fff; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 8px; margin-left: 8px; vertical-align: middle; }
+    .calc-disclaimer { font-size: 0.78rem; color: var(--text-dim); line-height: 1.6; margin-top: 24px; }
 
     @media (max-width: 900px) {
       nav { padding: 0 20px; }
@@ -184,9 +179,6 @@
       .science-inner { grid-template-columns: 1fr; gap: 48px; }
       .who-cards { grid-template-columns: 1fr; }
       .features-grid { grid-template-columns: 1fr 1fr; }
-      .stats-strip { gap: 40px; }
-      .calc-form { grid-template-columns: 1fr; }
-      .calc-summary { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 600px) {
       nav { padding: 0 16px; }
@@ -194,9 +186,8 @@
       .hero { padding: 100px 20px 60px; }
       .food-grid { grid-template-columns: 1fr 1fr; }
       .features-grid { grid-template-columns: 1fr; }
-      .formula-row { flex-wrap: wrap; }
       .who-card { padding: 40px 28px; }
-      .calc-summary { grid-template-columns: 1fr 1fr; }
+      .calc-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -205,111 +196,130 @@
   <nav>
     <a href="#" class="nav-logo">The HARDKOR Diet</a>
     <ul class="nav-links">
-      <li><a href="#calculator">Calculator</a></li>
+      <li><a href="#calculator">What's Possible</a></li>
       <li><a href="#how">How It Works</a></li>
       <li><a href="#food">The Plan</a></li>
       <li><a href="#who">Who It's For</a></li>
-      <li><a href="#pricing">Get Started</a></li>
     </ul>
   </nav>
 
   <section class="hero">
     <p class="hero-eyebrow">8-Week Contest Prep Diet Program</p>
     <div class="wordmark">
-      <div class="wordmark-top">
-        <span class="wordmark-the">THE</span>
-        <span class="wordmark-diet">DIET</span>
-      </div>
       <div class="wordmark-main">HARDKOR</div>
       <div class="wordmark-tagline">Your Effort Defines You</div>
     </div>
-    <h1 class="hero-headline">Keep the Lean.<br /><span>Lose the Fat.</span></h1>
-    <p class="hero-sub">A precision diet built to maximize fat loss and preserve every ounce of muscle. Not a template. Not a guess. Your plan.</p>
-    <a href="#pricing" class="btn-primary">Start Your 8 Weeks</a>
-    <p class="hero-disclaimer">No fluff. No excuses. Just results.</p>
+    <h1 class="hero-headline">Keep the Muscle.<br /><span>Lose the Fat.</span></h1>
   </section>
 
   <section class="calculator" id="calculator">
     <div class="calc-inner">
-      <div class="calc-header">
-        <p class="section-label">Fat Loss Calculator</p>
-        <h2 class="section-title">See Your <span>HARDKOR</span> Roadmap</h2>
-        <p class="section-body">Enter your stats below. We'll show you exactly how many 8-week programs it takes to reach peak condition.</p>
-      </div>
-      <div class="calc-form">
-        <div class="calc-field">
+      <h2 class="calc-heading">What Can the HARDKOR Diet Do for You?</h2>
+      <p class="calc-intro">A precision diet built to maximize fat loss and preserve every ounce of muscle. Based on thousands of clients over 40 years, the average person on the HARDKOR Diet loses approximately 3% body fat per month — while increasing strength and energy.</p>
+
+      <div class="calc-row">
+        <div class="calc-col">
           <div class="calc-label">Gender</div>
-          <select class="calc-select" id="calc-gender">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
+          <div class="gender-tabs">
+            <button class="gender-tab active" id="tab-male">Male</button>
+            <button class="gender-tab" id="tab-female">Female</button>
+          </div>
+          <input type="hidden" id="calc-gender" value="male" />
         </div>
-        <div class="calc-field">
-          <div class="calc-label">Current Weight (lbs)</div>
-          <input class="calc-input" id="calc-weight" type="number" min="1" placeholder="200" />
+        <div class="calc-col">
+          <div class="calc-label">Current Bodyweight (lbs)</div>
+          <input class="calc-input" id="calc-weight" type="number" min="1" placeholder="Enter weight" />
         </div>
-        <div class="calc-field">
+        <div class="calc-col">
           <div class="calc-label">Current Body Fat %</div>
-          <input class="calc-input" id="calc-bf" type="number" min="1" max="70" placeholder="25" />
+          <input class="calc-input" id="calc-bf" type="number" min="1" max="70" placeholder="Enter body fat %" />
         </div>
       </div>
-      <button class="calc-btn" id="calc-btn">Calculate My Roadmap</button>
+
+      <button class="calc-btn" id="calc-btn">Show Me What's Possible &rarr;</button>
+
       <div class="calc-results" id="calc-results">
-        <div class="calc-summary" id="calc-summary"></div>
-        <div class="calc-breakdown-title">Program-by-Program Breakdown</div>
-        <div class="calc-timeline" id="calc-timeline"></div>
+        <p class="calc-narrative" id="calc-narrative"></p>
+        <table class="calc-table">
+          <thead>
+            <tr>
+              <th>Timeline</th>
+              <th>Body Fat %</th>
+              <th>Bodyweight</th>
+            </tr>
+          </thead>
+          <tbody id="calc-tbody"></tbody>
+        </table>
+        <p class="calc-disclaimer">Results may vary. This tool is for informational purposes only and does not constitute medical or nutritional advice. Individual results depend on starting body composition, program adherence, diet, exercise, and other factors. Consult a qualified healthcare professional before beginning any diet or exercise program.</p>
       </div>
     </div>
   </section>
+
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>Show Me How to Lose Fat and Gain Muscle at the Same Time — The HARDKOR Diet — Coming Soon</span>
+      <span aria-hidden="true">Show Me How to Lose Fat and Gain Muscle at the Same Time — The HARDKOR Diet — Coming Soon</span>
+      <span aria-hidden="true">Show Me How to Lose Fat and Gain Muscle at the Same Time — The HARDKOR Diet — Coming Soon</span>
+      <span aria-hidden="true">Show Me How to Lose Fat and Gain Muscle at the Same Time — The HARDKOR Diet — Coming Soon</span>
+    </div>
+  </div>
 
   <div class="divider"></div>
 
   <section class="philosophy">
     <p class="section-label">The HARDKOR Philosophy</p>
     <h2 class="section-title">Most Diets Get It <span>Wrong.</span></h2>
-    <p class="section-body">Most diets promise fast weight loss — and deliver it by destroying your muscle in the process. When the muscle goes, the metabolism goes with it. You hit a plateau, you stall, and you're back where you started.</p>
-    <div class="quote-block"><p>If it's taking too long,<br />you're doing it wrong.</p></div>
-    <p class="section-body">HARDKOR is different. This system has been producing real results since 1982. The principle is simple: keep your lean body mass, and your body burns fat around the clock. Lose the lean, and you lose everything.</p>
+    <p class="section-body">Most diets promise fast weight loss — and deliver it by destroying your muscle in the process. When the muscle goes, the metabolism goes with it. You hit a plateau, you stall, and you're back where you started. HARDKOR is different. This system has been producing real results since 1982. The principle is simple: keep your lean body mass, and your body burns fat around the clock. Lose the lean, and you lose everything.</p>
   </section>
 
-  <div class="stats-strip">
-    <div class="stat"><div class="stat-number">8</div><div class="stat-label">Week Program</div></div>
-    <div class="stat"><div class="stat-number">5</div><div class="stat-label">Food Groups</div></div>
-    <div class="stat"><div class="stat-number">40+</div><div class="stat-label">Years of Results</div></div>
-    <div class="stat"><div class="stat-number">0</div><div class="stat-label">Guesswork</div></div>
-  </div>
+
+
+  <div class="divider"></div>
 
   <section class="how" id="how">
     <div class="how-inner">
       <div class="how-header">
         <p class="section-label">The Process</p>
-        <h2 class="section-title">How <span>HARDKOR</span> Works</h2>
+        <h2 class="section-title">How <span>HARDKOR</span> Gets It Right</h2>
       </div>
       <div class="steps">
         <div class="step"><div class="step-num">01</div><div class="step-title">Enter Your Stats</div><p class="step-body">Your lean body mass, your job, your daily activities and lifestyle. Real data, not guesses. This is what separates your plan from everyone else's.</p></div>
         <div class="step"><div class="step-num">02</div><div class="step-title">Get Your Plan</div><p class="step-body">The HARDKOR engine calculates your exact daily servings across 5 food groups. No calorie counting. No macro math. Just your numbers.</p></div>
-        <div class="step"><div class="step-num">03</div><div class="step-title">Eat Your Plan</div><p class="step-body">Tap your food choices each day. Build your meals from 278 precision-selected foods. Your grocery list builds itself as you go.</p></div>
-        <div class="step"><div class="step-num">04</div><div class="step-title">Peak at Week 8</div><p class="step-body">Eight weeks. Maximum fat loss. Lean muscle preserved. This is how athletes prep for competition — and how everyday people transform their physique.</p></div>
+        <div class="step"><div class="step-num">03</div><div class="step-title">Eat Your Plan</div><p class="step-body">Tap your food choices each day. Build your meals from 247 precision-selected foods. Your grocery list builds itself as you go.</p></div>
+        <div class="step"><div class="step-num">04</div><div class="step-title">Effort Defined</div><p class="step-body">Eight weeks of commitment shows. In the mirror. In your energy. In the way people look at you. What you put in is exactly what you get out.</p></div>
       </div>
     </div>
   </section>
+
+  <div class="divider"></div>
 
   <section class="foods" id="food">
     <div class="foods-inner">
       <div class="foods-header">
         <p class="section-label">The HARDKOR Plan</p>
         <h2 class="section-title">Five Groups. <span>Zero Compromise.</span></h2>
-        <p class="section-body" style="margin:0 auto;max-width:600px;color:var(--text-dim);">Every food in the HARDKOR program was chosen for a reason. 278 foods pulled from 350,000 in the USDA database — the ones that work.</p>
+        <p class="section-body" style="margin:0 auto;max-width:600px;color:var(--text-dim);">Every food in the HARDKOR program was chosen for a reason. 247 foods pulled from 350,000 in the USDA database — the ones that work.</p>
       </div>
       <div class="food-grid">
         <div class="food-card"><span class="food-icon">🥩</span><div class="food-name">Protein</div><p class="food-desc">Repairs and rebuilds muscle tissue. Non-negotiable on a program designed to keep your lean.</p></div>
-        <div class="food-card"><span class="food-icon">🌾</span><div class="food-name">Grains</div><p class="food-desc">Sustained energy for training and daily output. Timed and measured to fuel performance.</p></div>
-        <div class="food-card"><span class="food-icon">🥔</span><div class="food-name">Starches</div><p class="food-desc">Complex carbohydrates that feed your muscles and keep your energy stable through the program.</p></div>
-        <div class="food-card"><span class="food-icon">🥦</span><div class="food-name">Veggies</div><p class="food-desc">Volume, micronutrients, and fiber. Eat more, stay full, and keep your body running clean.</p></div>
-        <div class="food-card"><span class="food-icon">🍎</span><div class="food-name">Fruits</div><p class="food-desc">Natural sugars timed for recovery and energy. An essential part of the HARDKOR system.</p></div>
+        <div class="food-card"><span class="food-icon">🌾</span><div class="food-name">Grains</div><p class="food-desc">Complex carbs that deliver sustained energy for training and daily output. Timed and measured to fuel performance.</p></div>
+        <div class="food-card"><span class="food-icon">🥔</span><div class="food-name">Starches</div><p class="food-desc">The other complex carb. Feeds your muscles and keeps your energy stable through every week of the program.</p></div>
+        <div class="food-card"><span class="food-icon">🥦</span><div class="food-name">Veggies</div><p class="food-desc">Provide the nutrients and fiber your body needs to perform and recover through every week of the program.</p></div>
+        <div class="food-card"><span class="food-icon">🍎</span><div class="food-name">Fruits</div><p class="food-desc">Whole, fresh fruits provide quick, easy between-meal snacks.</p></div>
       </div>
     </div>
   </section>
+
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>Don't Lose Weight, Lose Fat and Look Great — The HARDKOR Diet — Coming Soon</span>
+      <span aria-hidden="true">Don't Lose Weight, Lose Fat and Look Great — The HARDKOR Diet — Coming Soon</span>
+      <span aria-hidden="true">Don't Lose Weight, Lose Fat and Look Great — The HARDKOR Diet — Coming Soon</span>
+      <span aria-hidden="true">Don't Lose Weight, Lose Fat and Look Great — The HARDKOR Diet — Coming Soon</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
 
   <section class="science">
     <div class="science-inner">
@@ -320,19 +330,46 @@
         <br />
         <p class="section-body">HARDKOR is engineered around the science of body recomposition. Protect the muscle. Feed it the right foods at the right time. And your body does what it was designed to do — burn fat.</p>
         <br />
-        <div class="quote-block" style="margin:32px 0 0;padding:16px 24px;"><p style="font-size:1.1rem;">Keep the lean — keep the metabolism.</p></div>
+        <a href="#pricing" class="science-cta">Get the HARDKOR Diet →</a>
       </div>
       <div class="science-formula">
-        <div class="formula-title">The HARDKOR Formula</div>
-        <div class="formula-row"><div class="formula-item">Lean Body Mass</div><div class="formula-plus">+</div></div>
-        <div class="formula-row"><div class="formula-item">Your Diet</div><div class="formula-plus">+</div></div>
-        <div class="formula-row"><div class="formula-item">Protein</div><div class="formula-plus">+</div></div>
-        <div class="formula-row"><div class="formula-item">Carbs</div><div class="formula-plus">+</div></div>
-        <div class="formula-row"><div class="formula-item">Activities</div></div>
-        <div class="formula-result"><div class="formula-result-label">Equals</div><div class="formula-result-value">Maximum Fat Burn</div></div>
+        <div class="formula-title">Calories</div>
+        <table class="cal-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Protein</th>
+              <th>Carbohydrates</th>
+              <th>Fat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cal-row-label">Too Much</td>
+              <td>Converted to Fat</td>
+              <td>Converted to Fat</td>
+              <td>Gain Fat</td>
+            </tr>
+            <tr>
+              <td class="cal-row-label">Too Little</td>
+              <td>Lose Strength</td>
+              <td>Lose Energy</td>
+              <td>Lose Fat</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
+
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>It's Not a Diet, It's an Attitude — The HARDKOR Diet — Coming Soon</span>
+      <span aria-hidden="true">It's Not a Diet, It's an Attitude — The HARDKOR Diet — Coming Soon</span>
+      <span aria-hidden="true">It's Not a Diet, It's an Attitude — The HARDKOR Diet — Coming Soon</span>
+      <span aria-hidden="true">It's Not a Diet, It's an Attitude — The HARDKOR Diet — Coming Soon</span>
+    </div>
+  </div>
 
   <section class="who" id="who">
     <div class="who-inner">
@@ -367,6 +404,17 @@
     </div>
   </section>
 
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>Your Effort Defines You — The HARDKOR Diet — Coming Soon</span>
+      <span aria-hidden="true">Your Effort Defines You — The HARDKOR Diet — Coming Soon</span>
+      <span aria-hidden="true">Your Effort Defines You — The HARDKOR Diet — Coming Soon</span>
+      <span aria-hidden="true">Your Effort Defines You — The HARDKOR Diet — Coming Soon</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
   <section class="features">
     <div class="features-inner">
       <div class="features-header">
@@ -375,7 +423,7 @@
       </div>
       <div class="features-grid">
         <div class="feature"><span class="feature-icon">⚡</span><div class="feature-title">Custom Plan, Your Numbers</div><p class="feature-body">Calculated from your lean body mass, job, lifestyle, and activities. Your plan is yours alone. Not a template. Not a guess.</p></div>
-        <div class="feature"><span class="feature-icon">👆</span><div class="feature-title">Tap to Build Your Meals</div><p class="feature-body">Select your foods with a tap. Your daily plan builds itself from 278 curated foods chosen specifically for fat loss and muscle retention.</p></div>
+        <div class="feature"><span class="feature-icon">👆</span><div class="feature-title">Tap to Build Your Meals</div><p class="feature-body">Select your foods with a tap. Your daily plan builds itself from 247 curated foods chosen specifically for fat loss and muscle retention.</p></div>
         <div class="feature"><span class="feature-icon">🛒</span><div class="feature-title">Automatic Grocery List</div><p class="feature-body">Every food you tap goes straight to your weekly shopping list. Walk in, buy it, done. No thinking required.</p></div>
         <div class="feature"><span class="feature-icon">⏰</span><div class="feature-title">Meal Timing</div><p class="feature-body">When you eat matters as much as what you eat. Your plan includes optimized meal timing with reminders to keep you on track all day.</p></div>
         <div class="feature"><span class="feature-icon">📅</span><div class="feature-title">8-Week Progression</div><p class="feature-body">A structured 8-week arc with a clear start and a clear finish. Built to peak — whether that's a competition, an event, or a personal goal.</p></div>
@@ -383,6 +431,8 @@
       </div>
     </div>
   </section>
+
+  <div class="divider"></div>
 
   <section class="testimonials">
     <div class="testimonials-inner">
@@ -398,22 +448,39 @@
     </div>
   </section>
 
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>You Didn't Know You Could Look This Awesome — The HARDKOR Diet — Coming Soon</span>
+      <span aria-hidden="true">You Didn't Know You Could Look This Awesome — The HARDKOR Diet — Coming Soon</span>
+      <span aria-hidden="true">You Didn't Know You Could Look This Awesome — The HARDKOR Diet — Coming Soon</span>
+      <span aria-hidden="true">You Didn't Know You Could Look This Awesome — The HARDKOR Diet — Coming Soon</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
   <section class="pricing" id="pricing">
     <div class="pricing-inner">
       <p class="section-label">Get Started</p>
       <h2 class="section-title">One Price. <span>Full Program.</span></h2>
       <div class="price-box">
         <div class="price-label">The Complete 8-Week HARDKOR Diet</div>
-        <div class="price-amount">$149</div>
+        <div class="price-amount">$249</div>
         <div class="price-period">One-time — Full 8-week access</div>
         <ul class="price-includes">
           <li>Custom Diet Plan — Your Numbers</li>
-          <li>278 Curated Foods Across 5 Groups</li>
+          <li>247 Curated Food List</li>
           <li>Automatic Weekly Grocery List</li>
-          <li>Meal Timing &amp; Daily Reminders</li>
-          <li>Full 8-Week Program Progression</li>
+          <li>When-to-Eat Reminders</li>
         </ul>
-        <a href="#" class="btn-primary">Start HARDKOR Now</a>
+        <div class="marquee-strip" style="margin: 0 -48px; border-top: 1px solid var(--yellow); border-bottom: none;">
+          <div class="marquee-track">
+            <span>It's Not a Diet, It's an Attitude — The HARDKOR Diet — Coming Soon</span>
+            <span aria-hidden="true">It's Not a Diet, It's an Attitude — The HARDKOR Diet — Coming Soon</span>
+            <span aria-hidden="true">It's Not a Diet, It's an Attitude — The HARDKOR Diet — Coming Soon</span>
+            <span aria-hidden="true">It's Not a Diet, It's an Attitude — The HARDKOR Diet — Coming Soon</span>
+          </div>
+        </div>
       </div>
       <p style="color:var(--text-dim);font-size:0.88rem;">This is a difficult program. It is not for everyone.<br />If you commit, it works.</p>
     </div>
@@ -422,59 +489,104 @@
   <footer>
     <div class="footer-logo">The HARDKOR Diet</div>
     <ul class="footer-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Privacy Policy</a></li>
-      <li><a href="#">Support</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="affiliates.html">Affiliates</a></li>
     </ul>
     <p class="footer-copy">© 2026 The HARDKOR Diet. All rights reserved.</p>
   </footer>
 
   <script>
+    // Gender tabs
+    document.getElementById('tab-male').addEventListener('click', function() {
+      document.getElementById('calc-gender').value = 'male';
+      document.getElementById('tab-male').classList.add('active');
+      document.getElementById('tab-female').classList.remove('active');
+    });
+    document.getElementById('tab-female').addEventListener('click', function() {
+      document.getElementById('calc-gender').value = 'female';
+      document.getElementById('tab-female').classList.add('active');
+      document.getElementById('tab-male').classList.remove('active');
+    });
+
+    function aceBadge(bf, gender, isFloor) {
+      if (isFloor) return { label: 'Showtime', cls: '' };
+      if (gender === 'male') {
+        if (bf <= 24 && bf > 13) return { label: 'Average', cls: '' };
+      } else {
+        if (bf <= 31 && bf > 20) return { label: 'Average', cls: '' };
+      }
+      return null;
+    }
+
+    function badgeHtml(bf, gender, isFloor) {
+      var b = aceBadge(bf, gender, isFloor);
+      return b ? '<span class="ace-badge ' + b.cls + '">' + b.label + '</span>' : '';
+    }
+
     document.getElementById('calc-btn').addEventListener('click', function () {
       var gender = document.getElementById('calc-gender').value;
       var weight = parseFloat(document.getElementById('calc-weight').value);
       var bf = parseFloat(document.getElementById('calc-bf').value);
       var targetBf = gender === 'male' ? 6 : 8;
-      var dropPerProgram = 6;
+      var dropPerCycle = 6;
 
       if (!weight || weight <= 0 || !bf || bf <= targetBf || bf > 70) return;
 
       var lbm = weight * (1 - bf / 100);
-      var totalPrograms = Math.ceil((bf - targetBf) / dropPerProgram);
-      var currentBf = bf;
-      var currentWeight = weight;
-      var totalFatToLose = currentWeight - (lbm / (1 - targetBf / 100));
+      var finalWeight = lbm / (1 - targetBf / 100);
 
-      var summaryHtml =
-        '<div class="calc-stat"><div class="calc-stat-value">' + totalPrograms + '</div><div class="calc-stat-label">8-Week Programs</div></div>' +
-        '<div class="calc-stat"><div class="calc-stat-value">' + lbm.toFixed(1) + '</div><div class="calc-stat-label">Lean Body Mass (lbs)</div></div>' +
-        '<div class="calc-stat"><div class="calc-stat-value">' + totalFatToLose.toFixed(1) + '</div><div class="calc-stat-label">Total Fat to Lose (lbs)</div></div>' +
-        '<div class="calc-stat"><div class="calc-stat-value">' + targetBf + '%</div><div class="calc-stat-label">Target Body Fat</div></div>';
+      var fullCycles = Math.floor((bf - targetBf) / dropPerCycle);
+      var remainder = (bf - targetBf) % dropPerCycle;
+      var partialWeeks = remainder > 0 ? (remainder / dropPerCycle) * 8 : 0;
+      var totalWeeks = fullCycles * 8 + partialWeeks;
+      var wholeWeeks = Math.round(totalWeeks);
+      var timeStr = wholeWeeks + ' weeks';
 
-      var timelineHtml = '';
-      for (var i = 1; i <= totalPrograms; i++) {
-        var newBf = currentBf - dropPerProgram;
-        if (newBf < targetBf) newBf = targetBf;
+      document.getElementById('calc-narrative').innerHTML =
+        '<strong>Pro Tip:</strong> Transforming your body is a balance of lean body mass (muscle shape) and how much body fat is covering it up. Based on your current weight and body fat, the HARDKOR Diet can take you from <strong>' +
+        weight.toFixed(0) + ' lbs at ' + bf.toFixed(0) + '%</strong> to <strong>' +
+        finalWeight.toFixed(1) + ' lbs at ' + targetBf + '%</strong> in <strong>' + timeStr +
+        '</strong> — while increasing your strength and energy. If the projected body weight at your desired body fat seems too low, it means you need more muscle. Participate in weight training and follow the HARDKOR Diet for fastest results.';
+
+      var tbody = '';
+      var curBf = bf;
+      var curWeight = weight;
+      var shownBadges = {};
+
+      tbody += '<tr class="row-current"><td>Current</td><td>' + bf.toFixed(0) + '%</td><td>' + weight.toFixed(0) + ' lbs</td></tr>';
+
+      var cycleWeeks = 0;
+      while (curBf > targetBf) {
+        var newBf = curBf - dropPerCycle;
+        var isFloor = false;
+        var isPartial = false;
+        if (newBf <= targetBf) { newBf = targetBf; isFloor = true; }
+        if (isFloor && remainder > 0) { isPartial = true; }
         var newWeight = lbm / (1 - newBf / 100);
-        var fatLost = currentWeight - newWeight;
 
-        timelineHtml +=
-          '<div class="calc-program">' +
-            '<div class="calc-program-num">' + (i < 10 ? '0' : '') + i + '</div>' +
-            '<div class="calc-program-weeks">Weeks ' + ((i - 1) * 8 + 1) + '–' + (i * 8) + '</div>' +
-            '<div class="calc-program-detail">' +
-              'Body fat: <strong>' + currentBf.toFixed(1) + '% → ' + newBf.toFixed(1) + '%</strong><br />' +
-              'Weight: <strong>' + currentWeight.toFixed(1) + ' → ' + newWeight.toFixed(1) + ' lbs</strong><br />' +
-              'Fat lost: <strong>' + fatLost.toFixed(1) + ' lbs</strong>' +
-            '</div>' +
-          '</div>';
+        var badge = aceBadge(newBf, gender, isFloor);
+        var bHtml = '';
+        if (badge && !shownBadges[badge.label]) {
+          shownBadges[badge.label] = true;
+          bHtml = '<span class="ace-badge ' + badge.cls + '">' + badge.label + '</span>';
+        }
 
-        currentBf = newBf;
-        currentWeight = newWeight;
+        if (isPartial) {
+          cycleWeeks += partialWeeks;
+          var pWholeWeeks = Math.round(cycleWeeks);
+          tbody += '<tr><td>' + pWholeWeeks + ' weeks</td><td>' + targetBf + '%' + bHtml + '</td><td>' + newWeight.toFixed(1) + ' lbs</td></tr>';
+        } else {
+          cycleWeeks += 8;
+          tbody += '<tr><td>' + cycleWeeks + ' weeks</td><td>' + newBf.toFixed(0) + '%' + bHtml + '</td><td>' + newWeight.toFixed(1) + ' lbs</td></tr>';
+        }
+
+        curBf = newBf;
+        curWeight = newWeight;
       }
 
-      document.getElementById('calc-summary').innerHTML = summaryHtml;
-      document.getElementById('calc-timeline').innerHTML = timelineHtml;
+      document.getElementById('calc-tbody').innerHTML = tbody;
       document.getElementById('calc-results').classList.add('visible');
     });
   </script>
