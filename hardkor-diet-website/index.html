@@ -26,6 +26,17 @@
     .nav-links { display: flex; gap: 32px; list-style: none; }
     .nav-links a { color: var(--text); text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--yellow); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--yellow); transition: all 0.25s; }
+    .mobile-nav { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(10,10,10,0.98); border-bottom: 2px solid var(--yellow); z-index: 99; flex-direction: column; padding: 16px 0; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { color: var(--text); text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 40px; transition: color 0.2s; }
+    .mobile-nav a:hover { color: var(--yellow); }
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
 
     .hero { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 140px 40px 20px; position: relative; overflow: hidden; }
     .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 60%, rgba(255,230,0,0.07) 0%, transparent 70%), repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,230,0,0.03) 60px, rgba(255,230,0,0.03) 61px); pointer-events: none; }
@@ -201,7 +212,19 @@
       <li><a href="#food">The Plan</a></li>
       <li><a href="#who">Who It's For</a></li>
     </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="#calculator">What's Possible</a>
+    <a href="#how">How It Works</a>
+    <a href="#food">The Plan</a>
+    <a href="#who">Who It's For</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="support.html">Support</a>
+    <a href="affiliates.html">Affiliates</a>
+  </div>
 
   <section class="hero">
     <p class="hero-eyebrow">8-Week Contest Prep Diet Program</p>
@@ -588,6 +611,16 @@
 
       document.getElementById('calc-tbody').innerHTML = tbody;
       document.getElementById('calc-results').classList.add('visible');
+    });
+  </script>
+  <script>
+    var ham = document.getElementById('hamburger');
+    var mobileNav = document.getElementById('mobile-nav');
+    ham.addEventListener('click', function() {
+      mobileNav.classList.toggle('open');
+    });
+    mobileNav.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() { mobileNav.classList.remove('open'); });
     });
   </script>
 </body>
