@@ -150,6 +150,33 @@
     .footer-links a:hover { color: var(--yellow); }
     .footer-copy { color: var(--text-dim); font-size: 0.8rem; }
 
+    .calculator { padding: 100px 40px; background: var(--dark); }
+    .calc-inner { max-width: 900px; margin: 0 auto; }
+    .calc-header { text-align: center; margin-bottom: 72px; }
+    .calc-form { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-bottom: 48px; }
+    .calc-field { background: var(--gray); padding: 36px 28px; }
+    .calc-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 12px; }
+    .calc-input { width: 100%; background: var(--gray-mid); border: 2px solid transparent; color: var(--text); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.6rem; letter-spacing: 0.05em; padding: 14px 16px; outline: none; transition: border-color 0.2s; appearance: none; -webkit-appearance: none; }
+    .calc-input:focus { border-color: var(--yellow); }
+    .calc-select { width: 100%; background: var(--gray-mid); border: 2px solid transparent; color: var(--text); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.6rem; letter-spacing: 0.05em; padding: 14px 16px; outline: none; cursor: pointer; transition: border-color 0.2s; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23FFE600' stroke-width='2' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; }
+    .calc-select:focus { border-color: var(--yellow); }
+    .calc-btn { display: block; width: 100%; background: var(--yellow); color: var(--black); font-family: Impact, 'Arial Narrow', sans-serif; font-size: 1.2rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 18px 0; border: none; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
+    .calc-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(255,230,0,0.35); }
+    .calc-results { display: none; }
+    .calc-results.visible { display: block; }
+    .calc-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-bottom: 2px; }
+    .calc-stat { background: var(--gray); padding: 36px 24px; text-align: center; }
+    .calc-stat-value { font-family: Impact, 'Arial Narrow', sans-serif; font-size: 2.8rem; color: var(--yellow); line-height: 1; margin-bottom: 6px; }
+    .calc-stat-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); }
+    .calc-breakdown-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin: 48px 0 16px; text-align: center; }
+    .calc-timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2px; }
+    .calc-program { background: var(--gray); padding: 32px 24px; border-top: 3px solid transparent; transition: border-color 0.2s; }
+    .calc-program:last-child { border-top-color: var(--yellow); }
+    .calc-program-num { font-family: Impact, 'Arial Narrow', sans-serif; font-size: 3.5rem; color: rgba(255,230,0,0.1); line-height: 1; margin-bottom: 4px; }
+    .calc-program-weeks { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.1rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--yellow); margin-bottom: 12px; }
+    .calc-program-detail { color: var(--text-dim); font-size: 0.88rem; line-height: 1.7; }
+    .calc-program-detail strong { color: var(--text); font-weight: 600; }
+
     @media (max-width: 900px) {
       nav { padding: 0 20px; }
       .nav-links { gap: 20px; }
@@ -158,6 +185,8 @@
       .who-cards { grid-template-columns: 1fr; }
       .features-grid { grid-template-columns: 1fr 1fr; }
       .stats-strip { gap: 40px; }
+      .calc-form { grid-template-columns: 1fr; }
+      .calc-summary { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 600px) {
       nav { padding: 0 16px; }
@@ -167,6 +196,7 @@
       .features-grid { grid-template-columns: 1fr; }
       .formula-row { flex-wrap: wrap; }
       .who-card { padding: 40px 28px; }
+      .calc-summary { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -175,6 +205,7 @@
   <nav>
     <a href="#" class="nav-logo">The HARDKOR Diet</a>
     <ul class="nav-links">
+      <li><a href="#calculator">Calculator</a></li>
       <li><a href="#how">How It Works</a></li>
       <li><a href="#food">The Plan</a></li>
       <li><a href="#who">Who It's For</a></li>
@@ -196,6 +227,39 @@
     <p class="hero-sub">A precision diet built to maximize fat loss and preserve every ounce of muscle. Not a template. Not a guess. Your plan.</p>
     <a href="#pricing" class="btn-primary">Start Your 8 Weeks</a>
     <p class="hero-disclaimer">No fluff. No excuses. Just results.</p>
+  </section>
+
+  <section class="calculator" id="calculator">
+    <div class="calc-inner">
+      <div class="calc-header">
+        <p class="section-label">Fat Loss Calculator</p>
+        <h2 class="section-title">See Your <span>HARDKOR</span> Roadmap</h2>
+        <p class="section-body">Enter your stats below. We'll show you exactly how many 8-week programs it takes to reach peak condition.</p>
+      </div>
+      <div class="calc-form">
+        <div class="calc-field">
+          <div class="calc-label">Gender</div>
+          <select class="calc-select" id="calc-gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <div class="calc-label">Current Weight (lbs)</div>
+          <input class="calc-input" id="calc-weight" type="number" min="1" placeholder="200" />
+        </div>
+        <div class="calc-field">
+          <div class="calc-label">Current Body Fat %</div>
+          <input class="calc-input" id="calc-bf" type="number" min="1" max="70" placeholder="25" />
+        </div>
+      </div>
+      <button class="calc-btn" id="calc-btn">Calculate My Roadmap</button>
+      <div class="calc-results" id="calc-results">
+        <div class="calc-summary" id="calc-summary"></div>
+        <div class="calc-breakdown-title">Program-by-Program Breakdown</div>
+        <div class="calc-timeline" id="calc-timeline"></div>
+      </div>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -365,5 +429,54 @@
     <p class="footer-copy">© 2026 The HARDKOR Diet. All rights reserved.</p>
   </footer>
 
+  <script>
+    document.getElementById('calc-btn').addEventListener('click', function () {
+      var gender = document.getElementById('calc-gender').value;
+      var weight = parseFloat(document.getElementById('calc-weight').value);
+      var bf = parseFloat(document.getElementById('calc-bf').value);
+      var targetBf = gender === 'male' ? 6 : 8;
+      var dropPerProgram = 6;
+
+      if (!weight || weight <= 0 || !bf || bf <= targetBf || bf > 70) return;
+
+      var lbm = weight * (1 - bf / 100);
+      var totalPrograms = Math.ceil((bf - targetBf) / dropPerProgram);
+      var currentBf = bf;
+      var currentWeight = weight;
+      var totalFatToLose = currentWeight - (lbm / (1 - targetBf / 100));
+
+      var summaryHtml =
+        '<div class="calc-stat"><div class="calc-stat-value">' + totalPrograms + '</div><div class="calc-stat-label">8-Week Programs</div></div>' +
+        '<div class="calc-stat"><div class="calc-stat-value">' + lbm.toFixed(1) + '</div><div class="calc-stat-label">Lean Body Mass (lbs)</div></div>' +
+        '<div class="calc-stat"><div class="calc-stat-value">' + totalFatToLose.toFixed(1) + '</div><div class="calc-stat-label">Total Fat to Lose (lbs)</div></div>' +
+        '<div class="calc-stat"><div class="calc-stat-value">' + targetBf + '%</div><div class="calc-stat-label">Target Body Fat</div></div>';
+
+      var timelineHtml = '';
+      for (var i = 1; i <= totalPrograms; i++) {
+        var newBf = currentBf - dropPerProgram;
+        if (newBf < targetBf) newBf = targetBf;
+        var newWeight = lbm / (1 - newBf / 100);
+        var fatLost = currentWeight - newWeight;
+
+        timelineHtml +=
+          '<div class="calc-program">' +
+            '<div class="calc-program-num">' + (i < 10 ? '0' : '') + i + '</div>' +
+            '<div class="calc-program-weeks">Weeks ' + ((i - 1) * 8 + 1) + '–' + (i * 8) + '</div>' +
+            '<div class="calc-program-detail">' +
+              'Body fat: <strong>' + currentBf.toFixed(1) + '% → ' + newBf.toFixed(1) + '%</strong><br />' +
+              'Weight: <strong>' + currentWeight.toFixed(1) + ' → ' + newWeight.toFixed(1) + ' lbs</strong><br />' +
+              'Fat lost: <strong>' + fatLost.toFixed(1) + ' lbs</strong>' +
+            '</div>' +
+          '</div>';
+
+        currentBf = newBf;
+        currentWeight = newWeight;
+      }
+
+      document.getElementById('calc-summary').innerHTML = summaryHtml;
+      document.getElementById('calc-timeline').innerHTML = timelineHtml;
+      document.getElementById('calc-results').classList.add('visible');
+    });
+  </script>
 </body>
 </html>
