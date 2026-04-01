@@ -7,41 +7,33 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --yellow: #FFE600;
-      --yellow-dim: #CCB800;
-      --black: #0A0A0A;
-      --dark: #111111;
-      --gray: #1A1A1A;
-      --gray-mid: #2A2A2A;
-      --text: #E8E8E8;
-      --text-dim: #888888;
-      --blue: #4169e1;
-    }
+    :root { --yellow: #FFE600; --yellow-dim: #CCB800; --black: #0A0A0A; --dark: #111111; --gray: #1A1A1A; --gray-mid: #2A2A2A; --text: #E8E8E8; --text-dim: #888888; --blue: #4169e1; }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { background: var(--black); color: var(--text); font-family: 'Barlow', sans-serif; font-size: 17px; line-height: 1.6; overflow-x: hidden; }
-
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,10,10,0.95); backdrop-filter: blur(8px); border-bottom: 2px solid var(--yellow); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 64px; }
     .nav-logo { font-family: Impact, 'Arial Narrow', sans-serif; font-size: 1.3rem; letter-spacing: 0.06em; color: var(--yellow); text-decoration: none; text-transform: uppercase; }
     .nav-links { display: flex; gap: 32px; list-style: none; }
     .nav-links a { color: var(--text); text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--yellow); }
-
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--yellow); }
+    .mobile-nav { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(10,10,10,0.98); border-bottom: 2px solid var(--yellow); z-index: 99; flex-direction: column; padding: 16px 0; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { color: var(--text); text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 40px; transition: color 0.2s; }
+    .mobile-nav a:hover { color: var(--yellow); }
+    @media (max-width: 768px) { nav { padding: 0 20px; } .nav-links { display: none; } .hamburger { display: flex; } }
     .hero { padding: 140px 40px 80px; text-align: center; }
     .eyebrow { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 20px; }
     h1 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1.05; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 20px; }
     h1 span { color: var(--yellow); }
     .hero-sub { font-size: 1.05rem; color: var(--text-dim); max-width: 580px; margin: 0 auto 60px; line-height: 1.75; }
-
     .stats-row { display: flex; justify-content: center; max-width: 680px; margin: 0 auto 80px; border: 2px solid var(--yellow); }
     .stat-item { flex: 1; padding: 48px 24px; text-align: center; border-right: 1px solid var(--gray-mid); }
     .stat-item:last-child { border-right: none; }
     .stat-number { font-family: Impact, 'Arial Narrow', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); color: var(--yellow); line-height: 1; margin-bottom: 10px; }
     .stat-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
-
     .divider { height: 3px; background: linear-gradient(90deg, transparent, var(--yellow), transparent); }
-
     .how-section { max-width: 800px; margin: 0 auto; padding: 80px 40px; }
     .how-section h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 48px; text-align: center; }
     .how-section h2 span { color: var(--yellow); }
@@ -51,8 +43,7 @@
     .step-num { font-family: Impact, 'Arial Narrow', sans-serif; font-size: 3rem; color: rgba(255,230,0,0.12); line-height: 1; flex-shrink: 0; width: 48px; }
     .step-text h4 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.25rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--yellow); margin-bottom: 8px; }
     .step-text p { font-size: 0.97rem; color: var(--text-dim); line-height: 1.7; }
-
-    .waitlist { text-align: center; padding: 80px 40px; background: var(--dark); border-top: 3px solid linear-gradient(90deg, transparent, var(--yellow), transparent); }
+    .waitlist { text-align: center; padding: 80px 40px; background: var(--dark); }
     .waitlist h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 16px; }
     .waitlist p { color: var(--text-dim); font-size: 1rem; margin-bottom: 40px; max-width: 480px; margin-left: auto; margin-right: auto; }
     .waitlist-form { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
@@ -61,27 +52,16 @@
     .waitlist-form input:focus { border-color: var(--blue); }
     .btn { display: inline-block; background: none; border: none; color: var(--blue); font-family: Impact, 'Arial Narrow', sans-serif; font-size: 1rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 40px; cursor: pointer; transition: opacity 0.15s; }
     .btn:hover { opacity: 0.75; }
-
     footer { background: var(--black); border-top: 1px solid var(--gray-mid); padding: 48px 40px; display: flex; flex-direction: column; align-items: center; gap: 24px; }
     .footer-logo { font-family: Impact, 'Arial Narrow', sans-serif; font-size: 1.3rem; letter-spacing: 0.1em; color: var(--yellow); text-transform: uppercase; }
     .footer-links { display: flex; gap: 32px; list-style: none; flex-wrap: wrap; justify-content: center; }
     .footer-links a { color: var(--text-dim); text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
     .footer-links a:hover { color: var(--yellow); }
     .footer-copy { color: var(--text-dim); font-size: 0.8rem; }
-
-    @media (max-width: 680px) {
-      nav { padding: 0 20px; }
-      .nav-links { display: none; }
-      .stats-row { flex-direction: column; }
-      .stat-item { border-right: none; border-bottom: 1px solid var(--gray-mid); }
-      .stat-item:last-child { border-bottom: none; }
-      .step { padding: 28px 24px; gap: 20px; }
-      .how-section { padding: 60px 20px; }
-    }
+    @media (max-width: 600px) { .stats-row { flex-direction: column; } .stat-item { border-right: none; border-bottom: 1px solid var(--gray-mid); } .stat-item:last-child { border-bottom: none; } .step { padding: 28px 24px; gap: 20px; } .how-section { padding: 60px 20px; } .hero { padding: 120px 20px 60px; } }
   </style>
 </head>
 <body>
-
   <nav>
     <a href="index.html" class="nav-logo">The HARDKOR Diet</a>
     <ul class="nav-links">
@@ -90,13 +70,19 @@
       <li><a href="support.html">Support</a></li>
       <li><a href="affiliates.html">Affiliates</a></li>
     </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="support.html">Support</a>
+    <a href="affiliates.html">Affiliates</a>
+  </div>
 
   <section class="hero">
     <p class="eyebrow">The HARDKOR Diet Affiliate Program</p>
     <h1>Refer Three.<br><span>Yours Is Free.</span></h1>
     <p class="hero-sub">Share the HARDKOR Diet and earn a 33.3% commission on every sale you refer. Three referrals and your own program is completely covered. Every referral after that is income in your pocket.</p>
-
     <div class="stats-row">
       <div class="stat-item">
         <div class="stat-number">33.3%</div>
@@ -114,34 +100,10 @@
   <section class="how-section">
     <h2>How It <span>Works</span></h2>
     <div class="steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-text">
-          <h4>Join the Program</h4>
-          <p>Sign up and get your unique referral link. It takes 60 seconds.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-text">
-          <h4>Share It</h4>
-          <p>Send your link to friends, family, your trainer, your gym — anyone serious about losing fat and keeping the muscle.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-text">
-          <h4>Earn 33.3% Per Referral</h4>
-          <p>Every time someone purchases through your link, you earn a commission. Three referrals and your own program is covered at any price point.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-text">
-          <h4>Keep Earning</h4>
-          <p>There is no cap. Every referral beyond three is pure income paid directly to you.</p>
-        </div>
-      </div>
+      <div class="step"><div class="step-num">01</div><div class="step-text"><h4>Join the Program</h4><p>Sign up and get your unique referral link. It takes 60 seconds.</p></div></div>
+      <div class="step"><div class="step-num">02</div><div class="step-text"><h4>Share It</h4><p>Send your link to friends, family, your trainer, your gym, anyone serious about losing fat and keeping the muscle.</p></div></div>
+      <div class="step"><div class="step-num">03</div><div class="step-text"><h4>Earn 33.3% Per Referral</h4><p>Every time someone purchases through your link, you earn a commission. Three referrals and your own program is covered at any price point.</p></div></div>
+      <div class="step"><div class="step-num">04</div><div class="step-text"><h4>Keep Earning</h4><p>There is no cap. Every referral beyond three is pure income paid directly to you.</p></div></div>
     </div>
   </section>
 
@@ -152,7 +114,7 @@
     <p>The affiliate program launches soon. Drop your email and we will notify you the moment it opens.</p>
     <div class="waitlist-form">
       <input type="email" placeholder="your@email.com" />
-      <button class="btn">Notify Me →</button>
+      <button class="btn">Notify Me</button>
     </div>
   </section>
 
@@ -164,8 +126,14 @@
       <li><a href="support.html">Support</a></li>
       <li><a href="affiliates.html">Affiliates</a></li>
     </ul>
-    <p class="footer-copy">© 2026 The HARDKOR Diet. All rights reserved.</p>
+    <p class="footer-copy">2026 The HARDKOR Diet. All rights reserved.</p>
   </footer>
 
+  <script>
+    var ham = document.getElementById('hamburger');
+    var mobileNav = document.getElementById('mobile-nav');
+    ham.addEventListener('click', function() { mobileNav.classList.toggle('open'); });
+    mobileNav.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', function() { mobileNav.classList.remove('open'); }); });
+  </script>
 </body>
 </html>
