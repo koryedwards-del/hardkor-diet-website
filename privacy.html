@@ -16,7 +16,7 @@
     .nav-links a { color: var(--text); text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--yellow); }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--yellow); }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--yellow); transition: all 0.25s; }
     .mobile-nav { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(10,10,10,0.98); border-bottom: 2px solid var(--yellow); z-index: 99; flex-direction: column; padding: 16px 0; }
     .mobile-nav.open { display: flex; }
     .mobile-nav a { color: var(--text); text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 40px; transition: color 0.2s; }
@@ -28,10 +28,11 @@
     h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.2rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--yellow); margin: 40px 0 12px; }
     p { color: var(--text-dim); margin-bottom: 16px; }
     a { color: #4169e1; text-decoration: none; }
-    footer { border-top: 1px solid var(--gray-mid); padding: 40px; text-align: center; }
-    .footer-logo { font-family: Impact, 'Arial Narrow', sans-serif; font-size: 1.1rem; letter-spacing: 0.1em; color: var(--yellow); text-transform: uppercase; margin-bottom: 16px; }
-    .footer-links { display: flex; gap: 32px; list-style: none; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
-    .footer-links a { color: var(--text-dim); font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; }
+    footer { background: var(--black); border-top: 1px solid var(--gray-mid); padding: 48px 40px; display: flex; flex-direction: column; align-items: center; gap: 24px; }
+    .footer-logo { font-family: Impact, 'Arial Narrow', sans-serif; font-size: 1.3rem; letter-spacing: 0.1em; color: var(--yellow); text-transform: uppercase; }
+    .footer-links { display: flex; gap: 32px; list-style: none; flex-wrap: wrap; justify-content: center; }
+    .footer-links a { color: var(--text-dim); text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--yellow); }
     .footer-copy { color: var(--text-dim); font-size: 0.8rem; }
   </style>
 </head>
@@ -72,13 +73,13 @@
     <h2>Data Retention</h2>
     <p>We retain your personal information only as long as necessary to fulfill the purposes described in this policy or as required by law. You may request deletion of your data at any time by contacting us at the email below.</p>
     <h2>Your Rights</h2>
-    <p>You have the right to access, correct, or request deletion of your personal information. If you are a California resident, you may have additional rights under the CCPA. To exercise any of these rights, contact us at <a href="mailto:info@thehardkordiet.com">info@thehardkordiet.com</a>.</p>
+    <p>You have the right to access, correct, or request deletion of your personal information. If you are a California resident, you may have additional rights under the CCPA. To exercise any of these rights, contact us at <a href="/cdn-cgi/l/email-protection#5e373038311e2a363b363f2c3a35312c3a373b2a703d3133"><span class="__cf_email__" data-cfemail="523b3c343d12263a373a332036393d20363b37267c313d3f">[email&#160;protected]</span></a>.</p>
     <h2>Children's Privacy</h2>
     <p>The HARDKOR Diet is not intended for individuals under the age of 18. We do not knowingly collect personal information from minors.</p>
     <h2>Changes to This Policy</h2>
     <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated effective date.</p>
     <h2>Contact</h2>
-    <p>For privacy-related questions, contact us at <a href="mailto:info@thehardkordiet.com">info@thehardkordiet.com</a>.</p>
+    <p>For privacy-related questions, contact us at <a href="/cdn-cgi/l/email-protection#20494e464f60544845484152444b4f52444945540e434f4d"><span class="__cf_email__" data-cfemail="0c65626a634c786469646d7e6867637e68656978226f6361">[email&#160;protected]</span></a>.</p>
   </div>
 
   <footer>
@@ -89,7 +90,7 @@
       <li><a href="support.html">Support</a></li>
       <li><a href="affiliates.html">Affiliates</a></li>
     </ul>
-    <p class="footer-copy">2026 The HARDKOR Diet. All rights reserved.</p>
+    <p class="footer-copy">© 2026 The HARDKOR Diet. All rights reserved.</p>
   </footer>
 
   <script>

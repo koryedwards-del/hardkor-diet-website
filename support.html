@@ -16,7 +16,7 @@
     .nav-links a { color: var(--text); text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--yellow); }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--yellow); }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--yellow); transition: all 0.25s; }
     .mobile-nav { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(10,10,10,0.98); border-bottom: 2px solid var(--yellow); z-index: 99; flex-direction: column; padding: 16px 0; }
     .mobile-nav.open { display: flex; }
     .mobile-nav a { color: var(--text); text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 40px; transition: color 0.2s; }
@@ -34,10 +34,11 @@
     .faq-item { border-bottom: 1px solid var(--gray-mid); padding: 24px 0; }
     .faq-q { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.05rem; letter-spacing: 0.04em; text-transform: uppercase; color: #fff; margin-bottom: 10px; }
     .faq-a { color: var(--text-dim); font-size: 0.95rem; }
-    footer { border-top: 1px solid var(--gray-mid); padding: 40px; text-align: center; }
-    .footer-logo { font-family: Impact, 'Arial Narrow', sans-serif; font-size: 1.1rem; letter-spacing: 0.1em; color: var(--yellow); text-transform: uppercase; margin-bottom: 16px; }
-    .footer-links { display: flex; gap: 32px; list-style: none; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
-    .footer-links a { color: var(--text-dim); font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; }
+    footer { background: var(--black); border-top: 1px solid var(--gray-mid); padding: 48px 40px; display: flex; flex-direction: column; align-items: center; gap: 24px; }
+    .footer-logo { font-family: Impact, 'Arial Narrow', sans-serif; font-size: 1.3rem; letter-spacing: 0.1em; color: var(--yellow); text-transform: uppercase; }
+    .footer-links { display: flex; gap: 32px; list-style: none; flex-wrap: wrap; justify-content: center; }
+    .footer-links a { color: var(--text-dim); text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--yellow); }
     .footer-copy { color: var(--text-dim); font-size: 0.8rem; }
   </style>
 </head>
@@ -64,11 +65,11 @@
     <p class="subtitle">We're here to help. Reach out and we'll get back to you within 1-2 business days.</p>
     <div class="contact-box">
       <p>Email us at</p>
-      <a href="mailto:info@thehardkordiet.com">info@thehardkordiet.com</a>
+      <a href="/cdn-cgi/l/email-protection#ee87808881ae9a868b868f9c8a85819c8a878b9ac08d8183"><span class="__cf_email__" data-cfemail="472e29212807332f222f2635232c2835232e22336924282a">[email&#160;protected]</span></a>
     </div>
     <h2>Refund Policy</h2>
     <p>All sales are final. The HARDKOR Diet does not offer refunds. This is a precision program that delivers real results when followed as designed. If you commit to the program, it works.</p>
-    <p>If you experience a technical issue with your purchase or access to the program, contact us at <a href="mailto:info@thehardkordiet.com">info@thehardkordiet.com</a> and we will make it right.</p>
+    <p>If you experience a technical issue with your purchase or access to the program, contact us at <a href="/cdn-cgi/l/email-protection#a3cacdc5cce3d7cbc6cbc2d1c7c8ccd1c7cac6d78dc0ccce"><span class="__cf_email__" data-cfemail="452c2b232a05312d202d2437212e2a37212c20316b262a28">[email&#160;protected]</span></a> and we will make it right.</p>
     <h2>Frequently Asked Questions</h2>
     <div class="faq-item">
       <div class="faq-q">What is the HARDKOR Diet?</div>
@@ -96,7 +97,7 @@
     </div>
     <div class="faq-item">
       <div class="faq-q">I have a technical problem with my purchase. What should I do?</div>
-      <div class="faq-a">Email us at <a href="mailto:info@thehardkordiet.com">info@thehardkordiet.com</a> and we will resolve it promptly.</div>
+      <div class="faq-a">Email us at <a href="/cdn-cgi/l/email-protection#f39a9d959cb3879b969b928197989c81979a9687dd909c9e"><span class="__cf_email__" data-cfemail="f0999e969fb0849895989182949b9f8294999584de939f9d">[email&#160;protected]</span></a> and we will resolve it promptly.</div>
     </div>
   </div>
 
@@ -108,7 +109,7 @@
       <li><a href="support.html">Support</a></li>
       <li><a href="affiliates.html">Affiliates</a></li>
     </ul>
-    <p class="footer-copy">2026 The HARDKOR Diet. All rights reserved.</p>
+    <p class="footer-copy">© 2026 The HARDKOR Diet. All rights reserved.</p>
   </footer>
 
   <script>
