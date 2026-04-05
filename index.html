@@ -456,7 +456,7 @@
       var gender = document.getElementById('calc-gender').value;
       var weight = parseFloat(document.getElementById('calc-weight').value);
       var bf = parseFloat(document.getElementById('calc-bf').value);
-      var targetBf = gender === 'male' ? 6 : 8;
+      var targetBf = gender === 'male' ? 4.68 : 8.95;
       var dropPerCycle = 6;
 
       if (!weight || weight <= 0 || !bf || bf <= targetBf || bf > 70) return;
